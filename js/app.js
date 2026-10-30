@@ -126,6 +126,11 @@ $('snd').onclick = () => { muted = !muted; store.set('umkd-mute', muted ? '1' : 
 ['pointerdown', 'keydown'].forEach(ev => document.addEventListener(ev, () => { if (!muted) audio(); }));
 sndUi();
 
+// Жоғары сапалы беттер: көбейткенде, сондай-ақ компьютер / ірі экранда әрқашан
+function useHi() {
+  return zoom > 1 || Math.max(screen.width, screen.height) * (window.devicePixelRatio || 1) >= 1500;
+}
+
 // ---------- Кітап ----------
 function build(start) {
   const stage = $('stage'), holder = $('holder');
@@ -146,7 +151,7 @@ function build(start) {
       usePortrait: true, startPage: cur, mobileScrollSupport: false, swipeDistance: 25,
       clickEventForward: true, useMouseEvents: true
     });
-    flip.loadFromImages(zoom > 1 ? IMGS_HI : IMGS);   // көбейтқанда — жоғары сапа
+    flip.loadFromImages(useHi() ? IMGS_HI : IMGS);   // үлкен экран немесе көбейту — жоғары сапа
     flip.on('flip', e => { cur = e.data; ui(); });
     flip.on('changeState', e => { if (e.data === 'flipping') playFlip(); });
   }
@@ -155,7 +160,7 @@ function build(start) {
 }
 function showSimple() {
   const img = $('simpleImg'); if (!img) return;
-  img.src = (zoom > 1 ? IMGS_HI : IMGS)[cur];
+  img.src = (useHi() ? IMGS_HI : IMGS)[cur];
   img.alt = (cur + 1) + '-бет';
 }
 function ui() {
