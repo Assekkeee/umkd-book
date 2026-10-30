@@ -5,66 +5,112 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>WEB бағдарламалау — Электрондық оқу-әдістемелік кешен</title>
 <meta name="description" content="«WEB бағдарламалау» пәні бойынша электрондық оқу-әдістемелік кешен. 6В06101 «Бағдарламалық инженерия».">
+<meta name="theme-color" content="#0f3b2b">
 <link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- Қарсы алу беті -->
-<div id="splash"><div class="card">
-  <img src="logo.png" alt="Seifullin University">
-  <h2>«WEB бағдарламалау»</h2>
-  <p>Электрондық оқу-әдістемелік кешен<br>6В06101 «Бағдарламалық инженерия»<br>С.Сейфуллин атындағы Қазақ агротехникалық зерттеу университеті</p>
-  <button id="open">Кітапты ашу</button>
-  <small>Парақтау үшін беттің бұрышынан тартыңыз</small>
-</div></div>
+<!-- Иконкалар -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-first" viewBox="0 0 24 24"><path d="m11 17-5-5 5-5M18 17l-5-5 5-5"/></symbol>
+  <symbol id="i-last" viewBox="0 0 24 24"><path d="m13 17 5-5-5-5M6 17l5-5-5-5"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
+
+<!-- Кіріспе бет: нақты мұқаба -->
+<div id="splash" role="dialog" aria-modal="true" aria-labelledby="splashTitle">
+  <div class="intro">
+    <div class="intro-text">
+      <img class="intro-logo" src="logo.png" alt="Seifullin University">
+      <h2 id="splashTitle">WEB бағдарламалау</h2>
+      <p class="intro-sub">Электрондық оқу-әдістемелік кешен</p>
+      <p class="intro-meta">6В06101 «Бағдарламалық инженерия»<br>С.Сейфуллин атындағы Қазақ агротехникалық зерттеу университеті<br>Астана, 2026</p>
+      <div class="intro-actions">
+        <button id="open" class="btn btn-gold">Кітапты ашу</button>
+        <button id="resume" class="btn btn-ghost" hidden>Жалғастыру<span id="resumePage"></span></button>
+      </div>
+    </div>
+    <div class="intro-cover" aria-hidden="true"><img src="pages_md/001.webp" alt=""></div>
+  </div>
+</div>
 
 <header>
-  <button class="ib" id="menu" title="Мазмұны / Іздеу" aria-label="Мәзір">☰</button>
-  <img class="logo" id="home" title="Бастапқы бет" src="logo.png" alt="Seifullin University">
-  <h1>«WEB бағдарламалау» — электрондық оқу-әдістемелік кешен<small>6В06101 «Бағдарламалық инженерия» · С.Сейфуллин атындағы ҚАТЗУ · Астана, 2026</small></h1>
-  <button class="ib" id="theme" title="Жарық / қараңғы тақырып" aria-label="Тақырып">🌓</button>
-  <button class="ib" id="fs" title="Толық экран" aria-label="Толық экран">⛶</button>
-  <a class="ib" id="pdf" href="umkd.pdf" download title="PDF жүктеу" aria-label="PDF жүктеу">⬇</a>
+  <button class="icon" id="menu" title="Мазмұны" aria-label="Мазмұнды ашу немесе жабу" aria-expanded="true"><svg class="i"><use href="#i-menu"/></svg></button>
+  <button class="brand" id="home" title="Бастапқы бетке оралу">
+    <img class="logo" src="logo.png" alt="">
+    <span class="brand-t"><b>WEB бағдарламалау</b><span id="chapter">Мұқаба</span></span>
+  </button>
+  <span class="spacer"></span>
+  <button class="search-pill" id="searchBtn" title="Мәтін бойынша іздеу (Ctrl+K)"><svg class="i"><use href="#i-search"/></svg><span>Іздеу</span><kbd>Ctrl K</kbd></button>
+  <button class="icon" id="theme" title="Жарық / қараңғы тақырып" aria-label="Тақырыпты ауыстыру"><svg class="i"><use href="#i-contrast"/></svg></button>
+  <button class="icon hide-sm" id="fs" title="Толық экран (F)" aria-label="Толық экран"><svg class="i"><use href="#i-expand"/></svg></button>
+  <a class="icon" id="pdf" href="umkd.pdf" download title="PDF жүктеп алу" aria-label="PDF жүктеп алу"><svg class="i"><use href="#i-download"/></svg></a>
 </header>
-
-<div id="progress"><i id="progressBar"></i></div>
+<div id="progress" role="progressbar" aria-label="Оқу барысы" aria-valuemin="0" aria-valuemax="100"><i id="progressBar"></i></div>
 
 <main>
-  <aside id="side">
-    <div class="tabs">
-      <button class="on" data-t="toc">Мазмұны</button>
-      <button data-t="thumbs">Беттер</button>
-      <button data-t="search">Іздеу</button>
+  <div id="scrim"></div>
+  <aside id="side" aria-label="Навигация">
+    <div class="tabs" role="tablist">
+      <button class="on" data-t="toc" role="tab"><svg class="i"><use href="#i-list"/></svg>Мазмұны</button>
+      <button data-t="thumbs" role="tab"><svg class="i"><use href="#i-grid"/></svg>Беттер</button>
+      <button data-t="search" role="tab"><svg class="i"><use href="#i-search"/></svg>Іздеу</button>
     </div>
     <div class="pane toc on" id="p-toc"></div>
     <div class="pane" id="p-thumbs"><div class="thumbs" id="thumbs"></div></div>
     <div class="pane" id="p-search">
-      <div class="sbox"><input id="q" type="search" placeholder="Мәтін бойынша іздеу…" autocomplete="off"></div>
+      <div class="sbox">
+        <svg class="i"><use href="#i-search"/></svg>
+        <input id="q" type="search" placeholder="Мәтін бойынша іздеу" autocomplete="off" aria-label="Мәтін бойынша іздеу">
+      </div>
       <div id="results"><div class="hint">Кемінде 2 таңба енгізіңіз.</div></div>
     </div>
   </aside>
-  <div class="stage" id="stage">
-    <div id="loading">Кітап жүктелуде…</div>
-    <div id="holder"></div>
-    <div id="reader"></div>
+
+  <div class="viewport">
+    <div class="stage" id="stage">
+      <div id="loading">Кітап жүктелуде…</div>
+      <div id="holder"></div>
+      <div id="reader"></div>
+    </div>
+    <button class="edge edge-l" id="edgePrev" title="Алдыңғы бет" aria-label="Алдыңғы бет"><svg class="i"><use href="#i-left"/></svg></button>
+    <button class="edge edge-r" id="edgeNext" title="Келесі бет" aria-label="Келесі бет"><svg class="i"><use href="#i-right"/></svg></button>
+
+    <nav class="toolbar" aria-label="Беттерді басқару">
+      <label class="pg"><input id="goto" type="number" min="1" value="1" aria-label="Бет нөмірі" inputmode="numeric"><span class="of">/ <span id="total"></span></span></label>
+      <input class="scrub" id="scrub" type="range" min="1" value="1" step="1" aria-label="Беттер бойынша жылжу">
+      <div class="grp">
+        <button class="icon" id="zout" title="Кішірейту (−)" aria-label="Кішірейту"><svg class="i"><use href="#i-minus"/></svg></button>
+        <span class="zv" id="zv">100%</span>
+        <button class="icon" id="zin" title="Үлкейту (+)" aria-label="Үлкейту"><svg class="i"><use href="#i-plus"/></svg></button>
+      </div>
+      <div class="seg" role="group" aria-label="Көрсету режимі">
+        <button id="m-book" title="Кітап: беттерді парақтау">Кітап</button>
+        <button id="m-read" title="Оқу: беттер тігінен ретімен">Оқу</button>
+      </div>
+      <button class="icon" id="snd" title="Парақтау дыбысы" aria-label="Дыбыс" aria-pressed="true">
+        <svg class="i on-s"><use href="#i-sound"/></svg><svg class="i off-s"><use href="#i-mute"/></svg>
+      </button>
+    </nav>
   </div>
 </main>
-
-<div class="bar">
-  <button class="ib" id="first" title="Басына">⏮</button>
-  <button class="ib" id="prev" title="Алдыңғы бет">◀</button>
-  <span class="pg"><input id="goto" type="number" min="1" value="1" aria-label="Бет нөмірі"> / <span id="total"></span></span>
-  <button class="ib" id="next" title="Келесі бет">▶</button>
-  <button class="ib" id="last" title="Соңына">⏭</button>
-  <span class="sep"></span>
-  <button class="ib" id="zout" title="Кішірейту">−</button>
-  <span class="pg" id="zv">100%</span>
-  <button class="ib" id="zin" title="Үлкейту">+</button>
-  <span class="sep"></span>
-  <button class="ib" id="mode" title="Оқу режимі" aria-label="Режим">📜</button>
-  <button class="ib" id="snd" title="Дыбыс қосу / өшіру" aria-label="Дыбыс">🔊</button>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 <script src="data/data.js"></script>

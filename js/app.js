@@ -27,11 +27,13 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 };
 
-let flip = null, cur = 0, zoom = 1, buildTimer = null, reader = store.get('umkd-mode', 'reader') === 'reader', io = null;
+let flip = null, cur = 0, zoom = 1, buildTimer = null, io = null;
 const hasFlip = typeof window.St !== 'undefined' && window.St.PageFlip;
+let reader = store.get('umkd-mode', hasFlip ? 'book' : 'reader') === 'reader' || !hasFlip;
 
 $('total').textContent = N;
 $('goto').max = N;
+$('scrub').max = N;
 
 // ---------- Тақырып (жарық / қараңғы) ----------
 function applyTheme(t) { document.documentElement.setAttribute('data-theme', t); }
@@ -60,7 +62,11 @@ D.toc.forEach(({title, page, level}) => {
 function markToc() {
   let best = null;
   tocEl.querySelectorAll('a').forEach(a => { a.classList.remove('cur'); if (+a.dataset.p <= cur + 1) best = a; });
-  if (best) best.classList.add('cur');
+  if (best) {
+    best.classList.add('cur');
+    $('chapter').textContent = best.firstChild.textContent;
+    if ($('p-toc').classList.contains('on') && !$('side').classList.contains('closed')) best.scrollIntoView({block: 'nearest'});
+  }
 }
 
 // ---------- Беттер (нобайлар), жалқау жүктеу ----------
@@ -88,9 +94,9 @@ $('q').addEventListener('input', e => {
     if (k < 0) return; total++;
     if (out.length < 60) {
       const s = Math.max(0, k - 40), en = Math.min(t.length, k + q.length + 60);
-      out.push('<div class="res" data-p="' + (i + 1) + '"><b>' + (i + 1) + '-бет</b><br>' + (s > 0 ? '…' : '') +
+      out.push('<div class="res" data-p="' + (i + 1) + '"><span class="rp">' + (i + 1) + '</span><span>' + (s > 0 ? '…' : '') +
         esc(t.slice(s, k)) + '<mark>' + esc(t.slice(k, k + q.length)) + '</mark>' + esc(t.slice(k + q.length, en)) +
-        (en < t.length ? '…' : '') + '</div>');
+        (en < t.length ? '…' : '') + '</span></div>');
     }
   });
   box.innerHTML = out.length ? ('<div class="hint">Табылды: ' + total + ' бет</div>' + out.join('')) : '<div class="hint">Ештеңе табылмады.</div>';
@@ -132,7 +138,7 @@ function playFlip() {
   og.gain.setValueAtTime(0.0001, t + 0.6); og.gain.exponentialRampToValueAtTime(0.22, t + 0.63); og.gain.exponentialRampToValueAtTime(0.0001, t + 0.8);
   o.connect(og); og.connect(ac.destination); o.start(t + 0.6); o.stop(t + 0.82);
 }
-function sndUi() { $('snd').textContent = muted ? '🔇' : '🔊'; }
+function sndUi() { $('snd').setAttribute('aria-pressed', muted ? 'false' : 'true'); }
 $('snd').onclick = () => { muted = !muted; store.set('umkd-mute', muted ? '1' : '0'); sndUi(); if (!muted) playFlip(); };
 ['pointerdown', 'keydown'].forEach(ev => document.addEventListener(ev, () => { if (!muted) audio(); }));
 sndUi();
@@ -208,13 +214,17 @@ function buildReader(start) {
   ui();
 }
 function setMode(r) {
-  reader = r; store.set('umkd-mode', r ? 'reader' : 'book');
-  $('mode').textContent = r ? '📖' : '📜';
-  $('mode').title = r ? 'Кітап режимі (парақтау)' : 'Оқу режимі (тігінен айналдыру)';
-  build(cur);
+  reader = r || !hasFlip; store.set('umkd-mode', reader ? 'reader' : 'book');
+  modeUi(); build(cur);
 }
-$('mode').onclick = () => setMode(!reader);
-$('mode').textContent = reader ? '📖' : '📜';
+function modeUi() {
+  $('m-read').setAttribute('aria-pressed', reader ? 'true' : 'false');
+  $('m-book').setAttribute('aria-pressed', reader ? 'false' : 'true');
+  document.body.classList.toggle('reading', reader);
+}
+$('m-read').onclick = () => setMode(true);
+$('m-book').onclick = () => setMode(false);
+modeUi();
 
 function showSimple() {
   const img = $('simpleImg'); if (!img) return;
@@ -223,9 +233,13 @@ function showSimple() {
 }
 function ui() {
   $('goto').value = cur + 1;
-  $('first').disabled = $('prev').disabled = cur <= 0;
-  $('last').disabled = $('next').disabled = cur >= N - 1;
-  $('progressBar').style.width = ((cur + 1) / N * 100) + '%';
+  const pct = ((cur + 1) / N * 100);
+  $('edgePrev').disabled = cur <= 0;
+  $('edgeNext').disabled = cur >= N - 1;
+  $('progressBar').style.width = pct + '%';
+  $('progress').setAttribute('aria-valuenow', Math.round(pct));
+  $('scrub').value = cur + 1; $('scrub').style.setProperty('--pct', ((cur) / Math.max(1, N - 1) * 100) + '%');
+  $('zout').disabled = zoom <= 1; $('zin').disabled = zoom >= 3;
   store.set('umkd-page', cur);
   markToc(); markThumb();
 }
@@ -241,21 +255,25 @@ function step(d) {
   else if (flip) { d > 0 ? flip.flipNext('bottom') : flip.flipPrev('bottom'); }
   else go(cur + d);
 }
-$('next').onclick = () => step(1);
-$('prev').onclick = () => step(-1);
-$('first').onclick = () => go(0);
-$('last').onclick = () => go(N - 1);
+$('edgeNext').onclick = () => step(1);
+$('edgePrev').onclick = () => step(-1);
+$('scrub').addEventListener('input', e => { $('goto').value = e.target.value; });
+$('scrub').addEventListener('change', e => go(+e.target.value - 1));
 $('goto').addEventListener('change', e => go((parseInt(e.target.value) || 1) - 1));
 document.addEventListener('keydown', e => {
-  if (/INPUT|TEXTAREA/.test(e.target.tagName || '')) return;
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openSearch(); return; }
+  if (e.key === 'Escape') { if (innerWidth <= 820) side(false); return; }
+  if (/INPUT|TEXTAREA/.test(e.target.tagName || '') || e.ctrlKey || e.metaKey || e.altKey) return;
   switch (e.key) {
-    case 'ArrowRight': case 'PageDown': step(1); break;
-    case 'ArrowLeft': case 'PageUp': step(-1); break;
-    case 'Home': go(0); break;
-    case 'End': go(N - 1); break;
+    case '/': e.preventDefault(); openSearch(); break;
+    case 'ArrowRight': case 'PageDown': if (!reader || e.key === 'ArrowRight') { if (reader) e.preventDefault(); step(1); } break;
+    case 'ArrowLeft': case 'PageUp': if (!reader || e.key === 'ArrowLeft') { if (reader) e.preventDefault(); step(-1); } break;
+    case 'Home': e.preventDefault(); go(0); break;
+    case 'End': e.preventDefault(); go(N - 1); break;
     case '+': case '=': $('zin').click(); break;
     case '-': $('zout').click(); break;
     case 'f': case 'F': $('fs').click(); break;
+    case 'm': case 'M': setMode(!reader); break;
   }
 });
 
@@ -264,28 +282,42 @@ function setZoom(z) {
   zoom = Math.max(1, Math.min(3, Math.round(z * 4) / 4));
   $('zv').textContent = Math.round(zoom * 100) + '%';
   build(cur);
+  ui();
 }
 $('zin').onclick = () => setZoom(zoom + .5);
 $('zout').onclick = () => setZoom(zoom - .5);
 
 // ---------- Панель ----------
-function side(open) { $('side').classList.toggle('closed', !open); }
+function side(open) {
+  $('side').classList.toggle('closed', !open);
+  $('menu').setAttribute('aria-expanded', open ? 'true' : 'false');
+  document.body.classList.toggle('drawer', open && innerWidth <= 820);
+}
+function showTab(name) {
+  document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x.dataset.t === name));
+  ['toc', 'thumbs', 'search'].forEach(n => $('p-' + n).classList.toggle('on', name === n));
+  if (name === 'search') $('q').focus();
+  if (name === 'thumbs') { const f = thumbs.children[cur]; if (f) f.scrollIntoView({block: 'center'}); }
+  if (name === 'toc') markToc();
+}
+function openSearch() { $('splash').classList.add('hide'); side(true); showTab('search'); $('q').select(); }
 $('menu').onclick = () => side($('side').classList.contains('closed'));
-document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
-  document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
-  ['toc', 'thumbs', 'search'].forEach(n => $('p-' + n).classList.toggle('on', b.dataset.t === n));
-  if (b.dataset.t === 'search') $('q').focus();
-  if (b.dataset.t === 'thumbs') { const f = thumbs.children[cur]; if (f) f.scrollIntoView({block: 'center'}); }
-});
+$('scrim').onclick = () => side(false);
+$('searchBtn').onclick = openSearch;
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => showTab(b.dataset.t));
 if (innerWidth <= 820) side(false);
 
-$('open').onclick = () => { $('splash').classList.add('hide'); audio(); };
+// ---------- Кіріспе бет ----------
+const startPage = Math.min(N - 1, Math.max(0, parseInt(store.get('umkd-page', '0')) || 0));
+cur = startPage;
+function hideSplash() { $('splash').classList.add('hide'); audio(); }
+if (startPage > 0) { $('resume').hidden = false; $('resumePage').textContent = (startPage + 1) + '-бет'; }
+$('open').onclick = () => { hideSplash(); if (cur !== 0) { cur = 0; build(0); } };
+$('resume').onclick = hideSplash;
 $('home').onclick = () => $('splash').classList.remove('hide');
 
 // ---------- Өлшем өзгергенде қайта құру ----------
 let lw = 0, lh = 0;
-const startPage = Math.min(N - 1, Math.max(0, parseInt(store.get('umkd-page', '0')) || 0));
-cur = startPage;
 new ResizeObserver(() => {
   const st = $('stage'), w = st.clientWidth, h = st.clientHeight;
   if (Math.abs(w - lw) < 4 && Math.abs(h - lh) < 4 && (flip || !hasFlip || reader)) return;
