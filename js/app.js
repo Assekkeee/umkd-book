@@ -30,6 +30,7 @@ const store = {
 let flip = null, cur = 0, zoom = 1, buildTimer = null, io = null;
 const hasFlip = typeof window.St !== 'undefined' && window.St.PageFlip;
 let reader = store.get('umkd-view', hasFlip ? 'book' : 'reader') === 'reader' || !hasFlip;
+let closed = !reader;                     // кітап жабық күйде басталады
 
 $('total').textContent = N;
 $('goto').max = N;
@@ -158,8 +159,10 @@ function bookPageWidth() {
 function build(start) {
   const stage = $('stage'), holder = $('holder');
   if (flip) { try { flip.destroy(); } catch (e) {} flip = null; }
-  if (reader) { buildReader(start); return; }
-  $('reader').style.display = 'none'; holder.style.display = '';
+  if (reader) { hideClosed(); buildReader(start); return; }
+  $('reader').style.display = 'none';
+  if (closed) { showClosed(); return; }
+  holder.style.display = '';
   stage.classList.toggle('zoomed', zoom > 1);
   holder.style.width = (stage.clientWidth * zoom) + 'px';
   holder.style.height = (stage.clientHeight * zoom) + 'px';
@@ -183,6 +186,42 @@ function build(start) {
   $('loading').style.display = 'none';
   ui();
 }
+// ---------- Жабық кітап: мұқабаны басқанда ашылады ----------
+function showClosed() {
+  const stage = $('stage'), cb = $('closedBook');
+  if (flip) { try { flip.destroy(); } catch (e) {} flip = null; }
+  $('holder').style.display = 'none'; $('holder').innerHTML = '';
+  stage.classList.remove('zoomed');
+  const h = stage.clientHeight, w = stage.clientWidth, portrait = w < 600;
+  const pageW = Math.min(portrait ? w : w / 2, h * 827 / 1170);          // ашық кітаптағы бет ені
+  const cw = Math.max(120, Math.min(pageW * 0.94, (h - 60) * 827 / 1170, w * 0.8));
+  cb.style.setProperty('--w', cw + 'px');
+  cb.style.setProperty('--shift', (portrait ? 0 : cw / 2) + 'px');       // ашылғанда сырты жұлдыз ортасына барады
+  cb.classList.remove('opening'); cb.hidden = false;
+  document.body.classList.add('closed');
+  $('cbHint').textContent = cur > 0 ? 'Жалғастыру: ' + (cur + 1) + '-бет' : 'Кітапты ашу үшін басыңыз';
+  $('loading').style.display = 'none';
+  ui();
+}
+function hideClosed() {
+  const cb = $('closedBook'); cb.hidden = true; cb.classList.remove('opening');
+  document.body.classList.remove('closed');
+}
+function openBook(i) {
+  if (!closed) return;
+  closed = false;
+  const target = Math.max(1, Math.min(N - 1, i === undefined ? cur : i));
+  const instant = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  build(target);                                                         // нақты кітап мұқаба астында дайын тұрады
+  $('holder').style.visibility = 'hidden';
+  $('closedBook').classList.add('opening');
+  setTimeout(() => { $('holder').style.visibility = ''; }, instant ? 0 : 380);
+  setTimeout(hideClosed, instant ? 0 : 1400);
+  audio(); playFlip();
+}
+$('cbBook').onclick = () => openBook(cur > 0 ? cur : 1);
+$('cbBook').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openBook(cur > 0 ? cur : 1); } });
+
 // ---------- Оқу режимі: барлық беттер тігінен, PDF сияқты ----------
 function buildReader(start) {
   const stage = $('stage'), holder = $('holder'), box = $('reader');
@@ -214,7 +253,7 @@ function buildReader(start) {
   ui();
 }
 function setMode(r) {
-  reader = r || !hasFlip; store.set('umkd-view', reader ? 'reader' : 'book');
+  reader = r || !hasFlip; closed = false; hideClosed(); store.set('umkd-view', reader ? 'reader' : 'book');
   modeUi(); build(cur);
 }
 function modeUi() {
@@ -245,12 +284,14 @@ function ui() {
 }
 function go(i) {
   i = Math.max(0, Math.min(N - 1, i));
+  if (closed) { openBook(i); return; }
   if (i === cur) return;
   if (reader) { const t = $('reader').children[i]; if (t) $('reader').scrollTo({top: t.offsetTop - 12, behavior: 'smooth'}); cur = i; ui(); return; }
   if (flip) flip.flip(i, 'bottom');
   else { cur = i; showSimple(); ui(); }
 }
 function step(d) {
+  if (closed) { openBook(cur > 0 ? cur : 1); return; }
   if (reader) go(cur + d);
   else if (flip) { d > 0 ? flip.flipNext('bottom') : flip.flipPrev('bottom'); }
   else go(cur + d);
@@ -300,21 +341,17 @@ function showTab(name) {
   if (name === 'thumbs') { const f = thumbs.children[cur]; if (f) f.scrollIntoView({block: 'center'}); }
   if (name === 'toc') markToc();
 }
-function openSearch() { $('splash').classList.add('hide'); side(true); showTab('search'); $('q').select(); }
+function openSearch() { side(true); showTab('search'); $('q').select(); }
 $('menu').onclick = () => side($('side').classList.contains('closed'));
 $('scrim').onclick = () => side(false);
 $('searchBtn').onclick = openSearch;
 document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => showTab(b.dataset.t));
 if (innerWidth <= 820) side(false);
 
-// ---------- Кіріспе бет ----------
+// ---------- Соңғы оқылған бет ----------
 const startPage = Math.min(N - 1, Math.max(0, parseInt(store.get('umkd-page', '0')) || 0));
 cur = startPage;
-function hideSplash() { $('splash').classList.add('hide'); audio(); }
-if (startPage > 0) { $('resume').hidden = false; $('resumePage').textContent = (startPage + 1) + '-бет'; }
-$('open').onclick = () => { hideSplash(); if (cur !== 0) { cur = 0; build(0); } };
-$('resume').onclick = hideSplash;
-$('home').onclick = () => $('splash').classList.remove('hide');
+$('home').onclick = () => { if (reader) go(0); else { closed = true; build(cur); } };
 
 // ---------- Өлшем өзгергенде қайта құру ----------
 let lw = 0, lh = 0;

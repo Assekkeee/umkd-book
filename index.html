@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&display=swap">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -33,23 +33,6 @@
   <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
 </svg>
-
-<!-- Кіріспе бет: нақты мұқаба -->
-<div id="splash" role="dialog" aria-modal="true" aria-labelledby="splashTitle">
-  <div class="intro">
-    <div class="intro-text">
-      <img class="intro-logo" src="logo.png" alt="Seifullin University">
-      <h2 id="splashTitle">WEB бағдарламалау</h2>
-      <p class="intro-sub">Электрондық оқу-әдістемелік кешен</p>
-      <p class="intro-meta">6В06101 «Бағдарламалық инженерия»<br>С.Сейфуллин атындағы Қазақ агротехникалық зерттеу университеті<br>Астана, 2026</p>
-      <div class="intro-actions">
-        <button id="open" class="btn btn-gold">Кітапты ашу</button>
-        <button id="resume" class="btn btn-ghost" hidden>Жалғастыру<span id="resumePage"></span></button>
-      </div>
-    </div>
-    <div class="intro-cover" aria-hidden="true"><img src="pages_md/001.webp" alt=""></div>
-  </div>
-</div>
 
 <header>
   <button class="icon" id="menu" title="Мазмұны" aria-label="Мазмұнды ашу немесе жабу" aria-expanded="true"><svg class="i"><use href="#i-menu"/></svg></button>
@@ -89,6 +72,17 @@
       <div id="loading">Кітап жүктелуде…</div>
       <div id="holder"></div>
       <div id="reader"></div>
+      <div id="closedBook" hidden>
+        <div class="cb-scene">
+          <div class="cb-book" id="cbBook" role="button" tabindex="0" aria-label="Кітапты ашу">
+            <div class="cb-cover">
+              <div class="cb-front"><img src="pages_md/001.webp" alt="Кітап мұқабасы" draggable="false"><span class="cb-spine"></span></div>
+              <div class="cb-reverse"></div>
+            </div>
+          </div>
+          <p class="cb-hint" id="cbHint">Кітапты ашу үшін басыңыз</p>
+        </div>
+      </div>
     </div>
     <button class="edge edge-l" id="edgePrev" title="Алдыңғы бет" aria-label="Алдыңғы бет"><svg class="i"><use href="#i-left"/></svg></button>
     <button class="edge edge-r" id="edgeNext" title="Келесі бет" aria-label="Келесі бет"><svg class="i"><use href="#i-right"/></svg></button>
@@ -113,7 +107,7 @@
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
-<script src="data/data.js?v=3"></script>
-<script src="js/app.js?v=3"></script>
+<script src="data/data.js?v=4"></script>
+<script src="js/app.js?v=4"></script>
 </body>
 </html>
