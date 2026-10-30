@@ -8,6 +8,17 @@ const N = D.pages;
 const pad = i => String(i + 1).padStart(3, '0');
 const IMGS    = Array.from({length: N}, (_, i) => `pages/${pad(i)}.webp`);
 const IMGS_HI = Array.from({length: N}, (_, i) => `pages_hi/${pad(i)}.webp`);
+const IMGS_MD = Array.from({length: N}, (_, i) => `pages_md/${pad(i)}.webp`);
+
+// Canvas суретті кішірейткенде сапасы төмен болады — жоғары сапалы тегістеуді қосамыз
+(function () {
+  const orig = HTMLCanvasElement.prototype.getContext;
+  HTMLCanvasElement.prototype.getContext = function () {
+    const ctx = orig.apply(this, arguments);
+    if (ctx && ctx.imageSmoothingQuality !== undefined) { ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high'; }
+    return ctx;
+  };
+})();
 const $ = id => document.getElementById(id);
 
 // localStorage қолжетімсіз болуы мүмкін (жеке режим) — қауіпсіз орауыш
@@ -16,7 +27,7 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 };
 
-let flip = null, cur = 0, zoom = 1, buildTimer = null;
+let flip = null, cur = 0, zoom = 1, buildTimer = null, reader = store.get('umkd-mode', 'reader') === 'reader', io = null;
 const hasFlip = typeof window.St !== 'undefined' && window.St.PageFlip;
 
 $('total').textContent = N;
@@ -126,15 +137,23 @@ $('snd').onclick = () => { muted = !muted; store.set('umkd-mute', muted ? '1' : 
 ['pointerdown', 'keydown'].forEach(ev => document.addEventListener(ev, () => { if (!muted) audio(); }));
 sndUi();
 
-// Жоғары сапалы беттер: көбейткенде, сондай-ақ компьютер / ірі экранда әрқашан
-function useHi() {
-  return zoom > 1 || Math.max(screen.width, screen.height) * (window.devicePixelRatio || 1) >= 1500;
+// Экрандағы бет өлшеміне сай ең қолайлы суреттер жиынын таңдау (кішірейту аз болса — мәтін анық)
+function pickSet(pageCssWidth) {
+  const need = pageCssWidth * (window.devicePixelRatio || 1);
+  return need <= 1100 ? IMGS_MD : need <= 1450 ? IMGS : IMGS_HI;
+}
+function bookPageWidth() {
+  const st = $('stage'), w = st.clientWidth * zoom, h = st.clientHeight * zoom;
+  const portrait = w < 600;                       // бір беттік режим
+  return Math.min(portrait ? w : w / 2, h * 827 / 1170);
 }
 
 // ---------- Кітап ----------
 function build(start) {
   const stage = $('stage'), holder = $('holder');
   if (flip) { try { flip.destroy(); } catch (e) {} flip = null; }
+  if (reader) { buildReader(start); return; }
+  $('reader').style.display = 'none'; holder.style.display = '';
   stage.classList.toggle('zoomed', zoom > 1);
   holder.style.width = (stage.clientWidth * zoom) + 'px';
   holder.style.height = (stage.clientHeight * zoom) + 'px';
@@ -151,16 +170,55 @@ function build(start) {
       usePortrait: true, startPage: cur, mobileScrollSupport: false, swipeDistance: 25,
       clickEventForward: true, useMouseEvents: true
     });
-    flip.loadFromImages(useHi() ? IMGS_HI : IMGS);   // үлкен экран немесе көбейту — жоғары сапа
+    flip.loadFromImages(pickSet(bookPageWidth()));
     flip.on('flip', e => { cur = e.data; ui(); });
     flip.on('changeState', e => { if (e.data === 'flipping') playFlip(); });
   }
   $('loading').style.display = 'none';
   ui();
 }
+// ---------- Оқу режимі: барлық беттер тігінен, PDF сияқты ----------
+function buildReader(start) {
+  const stage = $('stage'), holder = $('holder'), box = $('reader');
+  holder.style.display = 'none'; holder.innerHTML = '';
+  stage.classList.remove('zoomed');
+  const w = Math.min(stage.clientWidth - 24, 980) * zoom;
+  const set = pickSet(w);
+  if (io) io.disconnect();
+  box.style.display = 'block';
+  box.innerHTML = '';
+  cur = start || 0;
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < N; i++) {
+    const im = document.createElement('img');
+    im.className = 'rpage'; im.dataset.i = i; im.alt = (i + 1) + '-бет';
+    im.loading = i < cur + 3 ? 'eager' : 'lazy'; im.decoding = 'async';
+    im.style.width = w + 'px'; im.style.aspectRatio = '827 / 1170';
+    im.src = set[i];
+    frag.appendChild(im);
+  }
+  box.appendChild(frag);
+  const target = box.children[cur];
+  if (target) box.scrollTop = target.offsetTop - 12;
+  io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { const i = +e.target.dataset.i; if (i !== cur) { cur = i; ui(); } } });
+  }, {root: box, rootMargin: '-45% 0px -45% 0px'});
+  box.querySelectorAll('.rpage').forEach(im => io.observe(im));
+  $('loading').style.display = 'none';
+  ui();
+}
+function setMode(r) {
+  reader = r; store.set('umkd-mode', r ? 'reader' : 'book');
+  $('mode').textContent = r ? '📖' : '📜';
+  $('mode').title = r ? 'Кітап режимі (парақтау)' : 'Оқу режимі (тігінен айналдыру)';
+  build(cur);
+}
+$('mode').onclick = () => setMode(!reader);
+$('mode').textContent = reader ? '📖' : '📜';
+
 function showSimple() {
   const img = $('simpleImg'); if (!img) return;
-  img.src = (useHi() ? IMGS_HI : IMGS)[cur];
+  img.src = pickSet(Math.min($('stage').clientWidth * zoom, $('stage').clientHeight * zoom * 0.707))[cur];
   img.alt = (cur + 1) + '-бет';
 }
 function ui() {
@@ -174,11 +232,13 @@ function ui() {
 function go(i) {
   i = Math.max(0, Math.min(N - 1, i));
   if (i === cur) return;
+  if (reader) { const t = $('reader').children[i]; if (t) $('reader').scrollTo({top: t.offsetTop - 12, behavior: 'smooth'}); cur = i; ui(); return; }
   if (flip) flip.flip(i, 'bottom');
   else { cur = i; showSimple(); ui(); }
 }
 function step(d) {
-  if (flip) { d > 0 ? flip.flipNext('bottom') : flip.flipPrev('bottom'); }
+  if (reader) go(cur + d);
+  else if (flip) { d > 0 ? flip.flipNext('bottom') : flip.flipPrev('bottom'); }
   else go(cur + d);
 }
 $('next').onclick = () => step(1);
@@ -228,7 +288,7 @@ const startPage = Math.min(N - 1, Math.max(0, parseInt(store.get('umkd-page', '0
 cur = startPage;
 new ResizeObserver(() => {
   const st = $('stage'), w = st.clientWidth, h = st.clientHeight;
-  if (Math.abs(w - lw) < 4 && Math.abs(h - lh) < 4 && (flip || !hasFlip)) return;
+  if (Math.abs(w - lw) < 4 && Math.abs(h - lh) < 4 && (flip || !hasFlip || reader)) return;
   clearTimeout(buildTimer);
   buildTimer = setTimeout(() => { lw = st.clientWidth; lh = st.clientHeight; build(cur); }, 250);
 }).observe($('stage'));
