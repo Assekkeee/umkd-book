@@ -29,7 +29,7 @@ const store = {
 
 let flip = null, cur = 0, zoom = 1, buildTimer = null, io = null;
 const hasFlip = typeof window.St !== 'undefined' && window.St.PageFlip;
-let reader = store.get('umkd-mode', hasFlip ? 'book' : 'reader') === 'reader' || !hasFlip;
+let reader = store.get('umkd-view', hasFlip ? 'book' : 'reader') === 'reader' || !hasFlip;
 
 $('total').textContent = N;
 $('goto').max = N;
@@ -214,7 +214,7 @@ function buildReader(start) {
   ui();
 }
 function setMode(r) {
-  reader = r || !hasFlip; store.set('umkd-mode', reader ? 'reader' : 'book');
+  reader = r || !hasFlip; store.set('umkd-view', reader ? 'reader' : 'book');
   modeUi(); build(cur);
 }
 function modeUi() {
