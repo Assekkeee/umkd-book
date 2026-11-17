@@ -65,7 +65,7 @@ nav.mn a:hover:after,nav.mn a.on:after{width:100%}
 .burger{display:none}
 /* hero */
 .hero{padding:40px 0 30px}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero>.wrap:first-child{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:76px;line-height:.98;font-weight:500;letter-spacing:-.02em}
 .hero h1 em{color:var(--acc);font-style:italic}
 .hero p.lead{font-size:18px;color:var(--mut);margin:22px 0 30px;max-width:520px}
@@ -347,7 +347,8 @@ table.t img{width:40px;height:40px;border-radius:10px;object-fit:cover}
 .dates div{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
 @media (max-width:1280px){nav.mn a.x2{display:none}}
 @media (max-width:1100px){nav.mn{display:none}.grid{grid-template-columns:repeat(3,1fr)}.cats{grid-template-columns:repeat(3,1fr)}.revs{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:58px}.kpi{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:860px){.hero .wrap,.pp,.kon,.co,.cat-l,.split,.band,.g2c,.prof{grid-template-columns:1fr}.collage{height:420px}.filters{position:static}.usp{grid-template-columns:1fr 1fr}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.srch{display:none}.top .tick span+span{display:none}.panel{grid-template-columns:1fr}.side{position:static;height:auto;flex-direction:row;overflow:auto}.side .logo,.side .me{display:none}.main{padding:18px}.prev,.sum{position:static}footer .wrap>.cols{grid-template-columns:1fr 1fr}.band .tx{padding:32px}.ocard{grid-template-columns:80px 1fr}.ocard .acts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}.ocard img{width:80px;height:90px}}
+.hero>.wrap+.wrap{display:block}
+@media (max-width:860px){.hero>.wrap:first-child,.pp,.kon,.co,.cat-l,.split,.band,.g2c,.prof{grid-template-columns:1fr}.collage{height:420px}.filters{position:static}.usp{grid-template-columns:1fr 1fr}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.srch{display:none}.top .tick span+span{display:none}.panel{grid-template-columns:1fr}.side{position:static;height:auto;flex-direction:row;overflow:auto}.side .logo,.side .me{display:none}.main{padding:18px}.prev,.sum{position:static}footer .wrap>.cols{grid-template-columns:1fr 1fr}.band .tx{padding:32px}.ocard{grid-template-columns:80px 1fr}.ocard .acts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}.ocard img{width:80px;height:90px}}
 @media (max-width:520px){.trk h2{font-size:36px!important}.top .rt>a{display:none}.f1{left:8px}.f2{right:8px}.wrap{padding:0 16px}.hero h1{font-size:44px}.sh h2{font-size:36px}.cats{grid-template-columns:repeat(2,1fr)}.usp{grid-template-columns:1fr}.hero .stats{gap:20px}.hero .stats b{font-size:30px}.who span{display:none}header.h .wrap{gap:10px;height:66px}.logo{font-size:24px}.logo small{display:none}.pc .bd{padding:10px 12px 12px}.pc .nm{font-size:13.5px}.pc .pr b{font-size:16px}.pc .ac .wa2{display:none}.addons{grid-template-columns:repeat(2,1fr)}.flw{grid-template-columns:repeat(2,1fr)}.g2{grid-template-columns:1fr}.revs{grid-template-columns:1fr}.kpi b{font-size:22px}footer .wrap>.cols{grid-template-columns:1fr}.gal{grid-template-columns:1fr}.gal .th{flex-direction:row;order:2}.gal .th img{width:70px;height:78px}}
 </style></head><body>
 <div id="app"></div><div id="ov" class="ov" onclick="closeAll()"></div><aside id="drawer" class="drawer"></aside><div id="modal" class="modal"></div><div id="toast" class="toast"></div>
