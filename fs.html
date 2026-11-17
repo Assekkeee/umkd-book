@@ -184,7 +184,7 @@ textarea.card{width:100%;min-height:80px;border:1.5px solid var(--line);border-r
 .prev{position:sticky;top:96px;background:#fff;border-radius:26px;border:1px solid var(--line);padding:22px;box-shadow:var(--sh)}
 .stage{height:300px;border-radius:20px;background:radial-gradient(circle at 50% 40%,#fff,#F3EBE3);position:relative;overflow:hidden;margin-bottom:16px}
 .stage .wrapper{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);width:0;height:0;border-left:110px solid transparent;border-right:110px solid transparent;border-top:180px solid var(--wc,#C9A27A);transition:.3s}
-.stage .bud{position:absolute;width:44px;height:44px;border-radius:50%;background-size:cover;background-position:center;box-shadow:0 4px 10px rgba(0,0,0,.18);border:2px solid #fff;transition:.3s;animation:pop .35s}
+.stage .bud{position:absolute;width:44px;height:44px;border-radius:50%;background-size:230%;background-position:center;box-shadow:0 4px 12px rgba(60,20,20,.25),inset 0 0 0 2px rgba(255,255,255,.6);transition:.3s;animation:pop .35s}
 @keyframes pop{from{transform:scale(0)}}
 .stage .hint{position:absolute;inset:0;display:grid;place-items:center;color:var(--mut);font-size:14px;text-align:center;padding:30px}
 .lines{font-size:14px;max-height:180px;overflow:auto;margin:10px 0}
@@ -367,7 +367,7 @@ const PH={
  f115:'1531058240690-006c446962d8',f116:'1780892057871-a58ab617718f',f120:'1589244159943-460088ed5c92',f121:'1565695951564-007d8f297e48',f122:'1775743093104-d8e53e5ed250',
  n126:'1651592279151-f84dea81a03d',n128:'1767552659473-9a541393de94',v132:'1528756514091-dee5ecaa3278',v136:'1611625105602-42ee06be977e',
  a138:'1647710782448-2e7d7f36a246',a140:'1629727687767-0aaf2d360144',a142:'1724099541163-07c86574615e',z144:'1650355648621-1a0445f7f9b4',z148:'1469259943454-aa100abba749',
- u150:'1520302630591-fd1c66edc19d',u152:'1770349781649-b7722e0de3fc',m156:'1525498128493-380d1990a112',m158:'1776722091903-097d6dab0455'
+ u150:'1520302630591-fd1c66edc19d',u152:'1770349781649-b7722e0de3fc',m156:'1525498128493-380d1990a112',m158:'1776722091903-097d6dab0455',e4:'1602229262754-3a232d284c22'
 };
 // categories
 const CATS=[
@@ -443,7 +443,7 @@ const FL=[
  {id:'alstro',kk:'Альстромерия',ru:'Альстромерия',price:550,ph:'a140',color:'#F07FA0'},
  {id:'calla',kk:'Калла',ru:'Калла',price:1300,ph:'z144',color:'#F4F1EA'},
  {id:'orchid',kk:'Орхидея',ru:'Орхидея',price:12000,ph:'o51',color:'#D06AAE'},
- {id:'euc',kk:'Эвкалипт',ru:'Эвкалипт',price:350,ph:'u152',color:'#8DA79A'}];
+ {id:'euc',kk:'Эвкалипт',ru:'Эвкалипт',price:350,ph:'e4',color:'#8DA79A'}];
 const WRAPS=[{id:'kraft',kk:'Крафт',ru:'Крафт',price:900,c:'#C9A27A'},{id:'blush',kk:'Ұнтақ түсті',ru:'Пудровая',price:1200,c:'#EBC9C3'},{id:'black',kk:'Қара матовый',ru:'Чёрная матовая',price:1500,c:'#2A2626'},{id:'white',kk:'Ақ',ru:'Белая',price:1200,c:'#F5F2EE'},{id:'none',kk:'Ораусыз',ru:'Без упаковки',price:0,c:'transparent'}];
 const ADDONS=['p34','p36','p38','p37'];
 const SIZES=[{id:'S',k:0.8},{id:'M',k:1},{id:'L',k:1.45}];
