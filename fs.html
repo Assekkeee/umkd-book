@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="kk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FlowerShop · Астанада гүл жеткізу</title>
+<meta name="description" content="FlowerShop — Астанада гүл жеткізу 90 минутта. Букет конструкторы, Kaspi QR, жібермес бұрын фото.">
+<meta property="og:title" content="FlowerShop — доставка цветов в Астане"><meta property="og:image" content="https://images.unsplash.com/photo-1780498802979-3d75e2b87ff2?w=1200&q=80&auto=format&fit=crop">
+<meta name="theme-color" content="#9E2A3A">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%239E2A3A'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='white'>✿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--bg:#FAF6F1;--card:#fff;--ink:#221D1A;--mut:#7A706A;--line:#EAE2D9;--acc:#9E2A3A;--acc2:#C2414F;--blush:#F6E4E0;--sage:#6E8B74;--sage2:#E6EEE7;--gold:#C8A26B;--r:18px;--sh:0 10px 30px rgba(60,30,20,.08);--sh2:0 20px 60px rgba(60,30,20,.16)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,select,textarea{font:inherit;color:inherit}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;transition:.2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--sh)}
+.btn.acc{background:var(--acc)}.btn.acc:hover{background:var(--acc2)}
+.btn.ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.sm{height:38px;padding:0 16px;font-size:14px}
+.btn.wa{background:#25D366}
+.btn:disabled{opacity:.4;pointer-events:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:14px;transition:.15s;white-space:nowrap}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.tag.hit{background:var(--acc);color:#fff}.tag.new{background:var(--sage);color:#fff}.tag.sale{background:var(--gold);color:#fff}
+/* topbar */
+.top{background:var(--ink);color:#EDE6DF;font-size:13px}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:36px;gap:16px}
+.top .tick{display:flex;gap:28px;overflow:hidden;white-space:nowrap}
+.top .rt{display:flex;gap:18px;align-items:center}
+.lang{display:flex;border:1px solid #5a514b;border-radius:999px;overflow:hidden}
+.lang button{padding:2px 10px;font-size:12px;font-weight:600;color:#bdb3aa}
+.lang button.on{background:#EDE6DF;color:var(--ink)}
+/* header */
+header.h{position:sticky;top:0;z-index:50;background:rgba(250,246,241,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header.h .wrap{display:flex;align-items:center;gap:24px;height:76px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;letter-spacing:-.01em}
+.logo i{width:38px;height:38px;border-radius:50%;background:var(--acc);display:grid;place-items:center;color:#fff;font-style:normal;font-size:20px}
+.logo small{display:block;font-family:Inter;font-size:10px;letter-spacing:.2em;color:var(--mut);text-transform:uppercase;margin-top:-6px}
+nav.mn{display:flex;gap:20px;font-weight:500;font-size:14px;white-space:nowrap}
+nav.mn a{position:relative;padding:6px 0}
+nav.mn a:after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--acc);transition:.2s}
+nav.mn a:hover:after,nav.mn a.on:after{width:100%}
+.srch{flex:1;max-width:300px;min-width:160px;position:relative;margin-left:auto}
+.srch input{width:100%;height:44px;border-radius:999px;border:1px solid var(--line);background:#fff;padding:0 18px 0 42px;outline:0}
+.srch input:focus{border-color:var(--ink)}
+.srch svg{position:absolute;left:15px;top:13px}
+.srch .sug{position:absolute;top:50px;left:0;right:0;background:#fff;border-radius:16px;box-shadow:var(--sh2);overflow:hidden;display:none;z-index:5}
+.srch .sug a{display:flex;gap:12px;align-items:center;padding:10px 14px;font-size:14px}
+.srch .sug a:hover{background:var(--bg)}
+.srch .sug img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+.icons{display:flex;gap:6px}
+.ib{position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;transition:.15s}
+.ib:hover{background:#fff}
+.ib b{position:absolute;top:4px;right:2px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--acc);color:#fff;font-size:11px;display:grid;place-items:center}
+.who{display:flex;align-items:center;gap:8px;height:44px;padding:0 14px 0 6px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:13.5px;font-weight:600}
+.who .av{width:32px;height:32px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--acc);font-weight:700}
+.burger{display:none}
+/* hero */
+.hero{padding:40px 0 30px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:76px;line-height:.98;font-weight:500;letter-spacing:-.02em}
+.hero h1 em{color:var(--acc);font-style:italic}
+.hero p.lead{font-size:18px;color:var(--mut);margin:22px 0 30px;max-width:520px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .stats{display:flex;gap:36px;margin-top:40px}
+.hero .stats b{display:block;font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;line-height:1}
+.hero .stats span{font-size:13px;color:var(--mut)}
+.collage{position:relative;height:580px}
+.collage img{position:absolute;object-fit:cover;border-radius:28px;box-shadow:var(--sh2)}
+.collage .a{left:0;top:0;width:62%;height:78%}
+.collage .b{right:0;top:9%;width:42%;height:46%}
+.collage .c{right:5%;bottom:0;width:48%;height:40%}
+.float{position:absolute;background:#fff;border-radius:18px;box-shadow:var(--sh2);padding:14px 16px;display:flex;gap:12px;align-items:center;font-size:13px;animation:fl 5s ease-in-out infinite}
+.float b{display:block;font-size:14px}
+.float .dot{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:20px}
+.f1{left:-24px;bottom:12%}.f2{right:-10px;top:-14px;animation-delay:-2.5s}
+@keyframes fl{50%{transform:translateY(-8px)}}
+/* usp */
+.usp{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:30px 0 10px}
+.usp div{background:#fff;border-radius:var(--r);padding:20px;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line)}
+.usp i{font-style:normal;width:44px;height:44px;border-radius:14px;background:var(--blush);display:grid;place-items:center;font-size:20px;flex:none}
+.usp b{display:block;font-size:14.5px}.usp span{font-size:13px;color:var(--mut)}
+section.s{padding:56px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:26px;gap:20px}
+.sh h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:500;line-height:1;letter-spacing:-.01em}
+.sh p{color:var(--mut);margin-top:8px}
+.sh a.more{font-weight:600;border-bottom:1.5px solid;padding-bottom:2px}
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.cat{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:#ddd}
+.cat img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.cat:hover img{transform:scale(1.06)}
+.cat span{position:absolute;inset:auto 0 0 0;padding:40px 16px 16px;background:linear-gradient(transparent,rgba(20,10,8,.7));color:#fff;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600}
+.occs{display:flex;gap:10px;flex-wrap:wrap}
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.pc{background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line);transition:.25s;display:flex;flex-direction:column;position:relative}
+.pc:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
+.pc .im{position:relative;aspect-ratio:1/1.08;overflow:hidden;background:#eee;cursor:pointer}
+.pc .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform .7s}
+.pc .im img+img{opacity:0}
+.pc:hover .im img+img{opacity:1}
+.pc:hover .im img{transform:scale(1.04)}
+.pc .tags{position:absolute;top:12px;left:12px;display:flex;gap:6px;z-index:2}
+.pc .fav{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;z-index:2;transition:.15s}
+.pc .fav.on svg{fill:var(--acc);stroke:var(--acc)}
+.pc .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pc .nm{font-weight:600;font-size:15px;line-height:1.3;cursor:pointer}
+.pc .rt{font-size:12.5px;color:var(--mut)}
+.pc .rt b{color:#E0A100}
+.pc .pr{display:flex;align-items:baseline;gap:8px;margin-top:auto;padding-top:6px}
+.pc .pr b{font-size:19px}.pc .pr s{color:var(--mut);font-size:13px}
+.pc .ac{display:flex;gap:8px;margin-top:8px}
+.pc .ac .btn{flex:1;height:42px;font-size:14px}
+.pc .ac .wa2{width:42px;height:42px;border-radius:50%;background:#E7F8EE;display:grid;place-items:center;flex:none}
+.pc .eta{font-size:12px;color:var(--sage);font-weight:600}
+/* catalog */
+.cat-l{display:grid;grid-template-columns:260px 1fr;gap:30px;align-items:start}
+.filters{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;position:sticky;top:96px}
+.filters h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:18px 0 10px}
+.filters h4:first-child{margin-top:0}
+.filters label{display:flex;gap:10px;align-items:center;padding:5px 0;font-size:14px;cursor:pointer}
+.filters input[type=checkbox]{accent-color:var(--acc);width:16px;height:16px}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw button{width:28px;height:28px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.sw button.on{box-shadow:0 0 0 2px var(--ink)}
+.range{display:flex;gap:8px}
+.range input{width:100%;height:40px;border:1px solid var(--line);border-radius:12px;padding:0 10px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px;flex-wrap:wrap}
+select.sel{height:42px;border-radius:999px;border:1px solid var(--line);background:#fff;padding:0 16px}
+.empty{padding:60px;text-align:center;color:var(--mut);background:#fff;border-radius:22px;border:1px dashed var(--line)}
+/* product page */
+.pp{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;padding:30px 0 60px}
+.gal{display:grid;grid-template-columns:84px 1fr;gap:14px}
+.gal .th{display:flex;flex-direction:column;gap:10px}
+.gal .th img{width:84px;height:96px;object-fit:cover;border-radius:14px;cursor:pointer;opacity:.6;border:2px solid transparent}
+.gal .th img.on{opacity:1;border-color:var(--ink)}
+.gal .main{border-radius:26px;overflow:hidden;aspect-ratio:1/1.1;background:#eee}
+.gal .main img{width:100%;height:100%;object-fit:cover}
+.crumbs{font-size:13px;color:var(--mut);padding-top:24px}
+.crumbs a:hover{color:var(--ink)}
+.pi h1{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:500;line-height:1.05;margin:10px 0}
+.pi .price{display:flex;align-items:baseline;gap:12px;margin:16px 0}
+.pi .price b{font-size:32px}.pi .price s{color:var(--mut)}
+.opt{margin:20px 0}
+.opt h5{font-size:13px;font-weight:600;margin-bottom:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.seg{display:flex;gap:10px;flex-wrap:wrap}
+.seg button{min-width:90px;padding:10px 16px;border-radius:14px;border:1.5px solid var(--line);background:#fff;text-align:left;font-size:14px}
+.seg button small{display:block;color:var(--mut);font-size:12px}
+.seg button.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.addons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.addon{border:1.5px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;cursor:pointer;font-size:12px;position:relative}
+.addon img{width:100%;aspect-ratio:1;object-fit:cover}
+.addon div{padding:6px 8px}
+.addon.on{border-color:var(--acc)}
+.addon.on:after{content:'✓';position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-size:12px}
+.recipe{background:var(--sage2);border-radius:16px;padding:16px 18px;font-size:14px}
+.recipe li{list-style:none;display:flex;justify-content:space-between;padding:3px 0}
+.qty{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;height:48px;background:#fff}
+.qty button{width:44px;height:44px;font-size:20px}
+.qty span{min-width:28px;text-align:center;font-weight:600}
+.buy{display:flex;gap:12px;margin-top:22px}
+.buy .btn{flex:1;height:54px}
+.guar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.guar div{display:flex;gap:10px;font-size:13px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+textarea.card{width:100%;min-height:80px;border:1.5px solid var(--line);border-radius:14px;padding:12px;resize:vertical;background:#fff;outline:0}
+/* constructor */
+.kon{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:start}
+.flw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fl{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.fl img{width:100%;aspect-ratio:1.2;object-fit:cover}
+.fl .b{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.fl .b b{font-size:14px}.fl .b small{display:block;color:var(--mut);font-size:12px}
+.fl .qty{height:36px}.fl .qty button{width:32px;height:32px;font-size:16px}
+.fl.on{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
+.prev{position:sticky;top:96px;background:#fff;border-radius:26px;border:1px solid var(--line);padding:22px;box-shadow:var(--sh)}
+.stage{height:300px;border-radius:20px;background:radial-gradient(circle at 50% 40%,#fff,#F3EBE3);position:relative;overflow:hidden;margin-bottom:16px}
+.stage .wrapper{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);width:0;height:0;border-left:110px solid transparent;border-right:110px solid transparent;border-top:180px solid var(--wc,#C9A27A);transition:.3s}
+.stage .bud{position:absolute;width:44px;height:44px;border-radius:50%;background-size:cover;background-position:center;box-shadow:0 4px 10px rgba(0,0,0,.18);border:2px solid #fff;transition:.3s;animation:pop .35s}
+@keyframes pop{from{transform:scale(0)}}
+.stage .hint{position:absolute;inset:0;display:grid;place-items:center;color:var(--mut);font-size:14px;text-align:center;padding:30px}
+.lines{font-size:14px;max-height:180px;overflow:auto;margin:10px 0}
+.lines div{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed var(--line)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;padding-top:10px}
+.tot b{font-size:26px}
+/* drawer & modal */
+.ov{position:fixed;inset:0;background:rgba(25,15,12,.45);backdrop-filter:blur(3px);z-index:90;opacity:0;pointer-events:none;transition:.25s}
+.ov.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:100%;background:var(--bg);z-index:100;transform:translateX(105%);transition:.35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.drawer .hd h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600}
+.drawer .ls{flex:1;overflow:auto;padding:12px 24px}
+.ci{display:grid;grid-template-columns:76px 1fr auto;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+.ci img{width:76px;height:84px;border-radius:14px;object-fit:cover}
+.ci .n{font-weight:600;font-size:14px;line-height:1.3}
+.ci small{color:var(--mut);font-size:12px;display:block}
+.ci .qty{height:34px;margin-top:6px;width:max-content}.ci .qty button{width:30px;height:30px;font-size:15px}
+.drawer .ft{padding:20px 24px;border-top:1px solid var(--line);background:#fff}
+.prog{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:6px 0 14px}
+.prog i{display:block;height:100%;background:var(--sage);transition:.4s}
+.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%) scale(.98);opacity:0;pointer-events:none;z-index:110;background:var(--bg);border-radius:28px;width:min(460px,94vw);max-height:92vh;overflow:auto;transition:.25s;box-shadow:var(--sh2)}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal .in{padding:30px}
+.modal h3{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;line-height:1.1}
+.x{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--line);font-size:18px}
+.fld{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+.fld label{font-size:13px;font-weight:600}
+.fld input,.fld select,.fld textarea{height:48px;border-radius:14px;border:1.5px solid var(--line);background:#fff;padding:0 14px;outline:0;transition:.15s}
+.fld textarea{height:auto;min-height:80px;padding:12px 14px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--ink)}
+.fld.err input{border-color:var(--acc)}
+.demo{margin-top:18px;background:#fff;border:1px dashed var(--gold);border-radius:16px;padding:14px;font-size:13px}
+.demo button{display:flex;width:100%;justify-content:space-between;padding:7px 8px;border-radius:10px;text-align:left}
+.demo button:hover{background:var(--bg)}
+.demo code{font-family:ui-monospace,monospace;font-size:12px;color:var(--acc)}
+.err-m{color:var(--acc);font-size:13px;margin-top:8px;min-height:18px}
+/* checkout */
+.co{display:grid;grid-template-columns:1fr 400px;gap:30px;align-items:start;padding:20px 0 70px}
+.steps{display:flex;gap:8px;margin:10px 0 24px}
+.steps div{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.steps div.on{background:var(--acc)}
+.box{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px;margin-bottom:18px}
+.box h3{font-size:19px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.box h3 i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:13px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.radio{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.radio button{border:1.5px solid var(--line);border-radius:16px;padding:14px;text-align:left;background:#fff;font-size:14px}
+.radio button small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.radio button.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.slots button{padding:9px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-size:13.5px}
+.slots button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.slots button:disabled{opacity:.35;text-decoration:line-through}
+.sum{position:sticky;top:96px}
+.sum .row{display:flex;justify-content:space-between;padding:6px 0;font-size:14.5px}
+.sum .row.t{font-size:20px;font-weight:700;border-top:1px solid var(--line);margin-top:8px;padding-top:14px}
+.promo{display:flex;gap:8px;margin:14px 0}
+.promo input{flex:1;height:44px;border-radius:12px;border:1.5px solid var(--line);padding:0 12px;text-transform:uppercase;outline:0}
+.kaspi{display:flex;gap:18px;align-items:center;background:#FFF3F3;border-radius:16px;padding:16px;margin-top:12px}
+.kaspi svg{flex:none;background:#fff;border-radius:10px;padding:6px}
+/* tracking */
+.trk{max-width:860px;margin:0 auto;padding:30px 0 70px}
+.tl{position:relative;margin:20px 0}
+.tl .st{display:grid;grid-template-columns:44px 1fr;gap:16px;padding-bottom:26px;position:relative}
+.tl .st:before{content:'';position:absolute;left:21px;top:44px;bottom:0;width:2px;background:var(--line)}
+.tl .st:last-child:before{display:none}
+.tl .st.done:before{background:var(--sage)}
+.tl .dot{width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-size:18px;z-index:1}
+.tl .st.done .dot{background:var(--sage);border-color:var(--sage);color:#fff}
+.tl .st.cur .dot{background:var(--acc);border-color:var(--acc);color:#fff;box-shadow:0 0 0 6px rgba(158,42,58,.15)}
+.tl .st b{display:block;margin-top:4px}.tl .st small{color:var(--mut)}
+.notif{display:flex;gap:12px;background:#E9F9EF;border-radius:18px;padding:14px 16px;font-size:14px;margin:10px 0;align-items:flex-start}
+.notif i{font-style:normal;font-size:20px}
+.photo-ok{border-radius:18px;overflow:hidden;position:relative;max-width:320px}
+.photo-ok span{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px}
+/* reviews, faq, footer */
+.revs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rev{background:#fff;border-radius:22px;padding:22px;border:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.rev .st{color:#E0A100;letter-spacing:2px}
+.rev p{font-size:14.5px}
+.rev .u{display:flex;gap:10px;align-items:center;margin-top:auto;font-size:13px}
+.rev .u img{width:42px;height:42px;border-radius:12px;object-fit:cover}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.band{background:var(--ink);color:#F1EAE3;border-radius:32px;overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr}
+.band .tx{padding:56px}
+.band h2{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:500;line-height:1}
+.band p{color:#BDB2A8;margin:16px 0 26px}
+.band img{width:100%;height:100%;object-fit:cover;min-height:380px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin-bottom:10px}
+.faq summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.faq summary:after{content:'+';font-size:22px;line-height:1}
+.faq details[open] summary:after{content:'–'}
+.faq p{color:var(--mut);margin-top:10px;font-size:14.5px}
+footer{background:#1A1614;color:#CFC5BC;padding:60px 0 30px;margin-top:40px}
+footer .wrap>.cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:30px}
+footer h5{color:#fff;font-size:14px;margin-bottom:14px}
+footer a{display:block;padding:4px 0;font-size:14px;color:#A99E94}
+footer a:hover{color:#fff}
+footer .logo{color:#fff}
+footer .cp{border-top:1px solid #2E2825;margin-top:40px;padding-top:20px;font-size:13px;color:#7F746B;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.map{border-radius:18px;overflow:hidden;height:170px;filter:grayscale(.3)}
+.map iframe{width:100%;height:100%;border:0}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;background:var(--ink);color:#fff;padding:14px 22px;border-radius:999px;z-index:200;transition:.3s;font-size:14px;box-shadow:var(--sh2);display:flex;gap:10px;align-items:center}
+.toast.on{transform:translate(-50%,0);opacity:1}
+.fab{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;z-index:60;box-shadow:0 10px 30px rgba(37,211,102,.4)}
+/* staff panel */
+.panel{display:grid;grid-template-columns:250px 1fr;min-height:100vh;background:#F4F1ED}
+.side{background:#1A1614;color:#CFC5BC;padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px}
+.side .logo{color:#fff;font-size:26px;margin:0 8px 26px}
+.side a{display:flex;gap:12px;align-items:center;padding:11px 14px;border-radius:12px;font-size:14px;cursor:pointer}
+.side a:hover{background:#2A2421}
+.side a.on{background:var(--acc);color:#fff}
+.side a b{margin-left:auto;background:#3a312d;color:#fff;font-size:11px;padding:1px 7px;border-radius:9px}
+.side a.on b{background:rgba(255,255,255,.25)}
+.side .me{margin-top:auto;border-top:1px solid #2E2825;padding:16px 8px 0;font-size:13px}
+.side .me b{color:#fff;display:block}
+.main{padding:28px 34px;min-width:0}
+.main h1{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;margin-bottom:4px}
+.main .sub{color:var(--mut);margin-bottom:22px}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+.kpi div{background:#fff;border-radius:20px;padding:20px;border:1px solid var(--line)}
+.kpi span{font-size:13px;color:var(--mut)}
+.kpi b{display:block;font-size:28px;margin:4px 0}
+.kpi small{font-size:12px;font-weight:600}
+.up{color:#2E8B57}.dn{color:var(--acc)}
+.card{background:#fff;border-radius:20px;padding:22px;border:1px solid var(--line);margin-bottom:18px}
+.card h3{font-size:17px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tw{overflow:auto}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px}
+table.t th{text-align:left;font-size:12px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.t td{padding:11px 10px;border-bottom:1px solid #F1ECE6;vertical-align:middle}
+table.t tr:hover td{background:#FCFAF8}
+table.t img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+.st-b{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.s-new{background:#FFF1D6;color:#9A6200}.s-prep{background:#E7EEFF;color:#2F55B5}.s-ready{background:#F3E8FF;color:#7A3EB5}.s-way{background:#E1F4FF;color:#0B6E99}.s-done{background:#E3F5E8;color:#23763D}.s-cancel{background:#FBE4E6;color:var(--acc)}
+.mini{height:34px;border-radius:10px;border:1px solid var(--line);background:#fff;padding:0 8px;font-size:13px}
+.g2c{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.bars{display:flex;align-items:flex-end;gap:10px;height:200px;padding-top:10px}
+.bars div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;font-size:11px;color:var(--mut)}
+.bars i{display:block;width:100%;border-radius:8px 8px 0 0;background:linear-gradient(var(--acc2),var(--acc));transition:height .6s}
+.bars div:last-child i{background:var(--ink)}
+.warn{display:flex;gap:10px;align-items:center;background:#FFF5E6;border-radius:12px;padding:10px 12px;font-size:13px;margin-bottom:8px}
+.warn.r{background:#FDECEE}
+.ocard{background:#fff;border-radius:20px;border:1px solid var(--line);padding:18px;display:grid;grid-template-columns:110px 1fr auto;gap:18px;margin-bottom:14px;align-items:start}
+.ocard img{width:110px;height:120px;border-radius:14px;object-fit:cover}
+.ocard h4{font-size:16px}
+.ocard .meta{font-size:13px;color:var(--mut);margin-top:4px;line-height:1.6}
+.ocard .acts{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.pill{display:inline-flex;gap:6px;align-items:center;background:var(--bg);padding:4px 10px;border-radius:999px;font-size:12px;margin:6px 6px 0 0}
+.log{font-size:13px;max-height:320px;overflow:auto}
+.log div{padding:7px 0;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:120px 1fr;gap:10px}
+.log span{color:var(--mut)}
+.prof{display:grid;grid-template-columns:300px 1fr;gap:24px;padding:30px 0 70px;align-items:start}
+.prof .me{background:#fff;border-radius:24px;padding:24px;border:1px solid var(--line);text-align:center}
+.prof .me .av{width:84px;height:84px;border-radius:50%;background:var(--blush);color:var(--acc);display:grid;place-items:center;font-size:32px;font-weight:700;margin:0 auto 12px}
+.bonus{background:linear-gradient(135deg,#9E2A3A,#5E1621);color:#fff;border-radius:20px;padding:20px;margin-top:16px;text-align:left}
+.bonus b{font-size:32px;display:block}
+.dates div{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+@media (max-width:1280px){nav.mn a.x2{display:none}}
+@media (max-width:1100px){nav.mn{display:none}.grid{grid-template-columns:repeat(3,1fr)}.cats{grid-template-columns:repeat(3,1fr)}.revs{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:58px}.kpi{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.hero .wrap,.pp,.kon,.co,.cat-l,.split,.band,.g2c,.prof{grid-template-columns:1fr}.collage{height:420px}.filters{position:static}.usp{grid-template-columns:1fr 1fr}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.srch{display:none}.top .tick span+span{display:none}.panel{grid-template-columns:1fr}.side{position:static;height:auto;flex-direction:row;overflow:auto}.side .logo,.side .me{display:none}.main{padding:18px}.prev,.sum{position:static}footer .wrap>.cols{grid-template-columns:1fr 1fr}.band .tx{padding:32px}.ocard{grid-template-columns:80px 1fr}.ocard .acts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}.ocard img{width:80px;height:90px}}
+@media (max-width:520px){.top .rt>a{display:none}.f1{left:8px}.f2{right:8px}.wrap{padding:0 16px}.hero h1{font-size:44px}.sh h2{font-size:36px}.cats{grid-template-columns:repeat(2,1fr)}.usp{grid-template-columns:1fr}.hero .stats{gap:20px}.hero .stats b{font-size:30px}.who span{display:none}header.h .wrap{gap:10px;height:66px}.logo{font-size:24px}.logo small{display:none}.pc .bd{padding:10px 12px 12px}.pc .nm{font-size:13.5px}.pc .pr b{font-size:16px}.pc .ac .wa2{display:none}.addons{grid-template-columns:repeat(2,1fr)}.flw{grid-template-columns:repeat(2,1fr)}.g2{grid-template-columns:1fr}.revs{grid-template-columns:1fr}.kpi b{font-size:22px}footer .wrap>.cols{grid-template-columns:1fr}.gal{grid-template-columns:1fr}.gal .th{flex-direction:row;order:2}.gal .th img{width:70px;height:78px}}
+</style></head><body>
+<div id="app"></div><div id="ov" class="ov" onclick="closeAll()"></div><aside id="drawer" class="drawer"></aside><div id="modal" class="modal"></div><div id="toast" class="toast"></div>
+<script>const U=(id,w=800)=>`https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
+const PH={
+ r0:'1578439231583-9eca0a363860',r3:'1559779080-6970e0186790',r4:'1548094967-e25a127d1f6d',r7:'1680563094046-5d846e2c59d1',r10:'1615182787503-08365d1e7fae',r11:'1679621711784-8485ebe333f5',r14:'1782849324164-03fa3923f254',r16:'1625380144826-325caf427d9d',
+ p18:'1511201173873-c327e63eb6c4',p19:'1575178094668-132dc931ad35',p20:'1780498802979-3d75e2b87ff2',p22:'1626976109816-08cef8600d7d',
+ t24:'1586968295564-92fd7572718b',t25:'1561181226-e8a7edd504c6',t26:'1775301331506-f7b0d0b3ac44',t27:'1561181286-d3fee7d55364',
+ h31:'1621518856558-9b2ce2d0660d',h33:'1531875565264-5b473e59fa07',h34:'1501577316686-a5cbf6c1df7e',
+ c38:'1771657570894-36f1d5cf5da3',c39:'1666469948591-f792c6ab29c9',l42:'1695556557825-97adbe470fd6',l43:'1561897519-6e4fbd1fbc41',o48:'1605996370592-b6f7a81e382e',o51:'1610397648930-477b8c7f0943',
+ g54:'1595886535782-0f757640a574',g58:'1569731030828-ba3bb70923ff',s60:'1567696153798-9111f9cd3d0d',s62:'1601884928885-92a922f7962f',s63:'1560881088-30da8d6e1378',s65:'1629386255808-c3ceb405173c',
+ b72:'1660885900184-fe13ca69392c',b73:'1581264692636-3cf6f29655c2',b74:'1676903740811-f9995891fa94',b76:'1610841802859-94794ea50e1b',b77:'1712576502784-d725518b18a1',
+ k78:'1604323990536-e5452c0507c1',k80:'1778101410311-6cca527142d6',k81:'1503652601-557d07733ddc',k83:'1764589593880-2068cc6758fa',
+ w84:'1487530811176-3780de880c2d',w85:'1521543832500-49e69fb2bea2',w87:'1525258946800-98cfd641d0de',
+ x90:'1646902823849-1aa943a17f46',x91:'1559715745-e1b33a271c8f',x92:'1565889673146-8e4d54300269',x96:'1602734846297-9299fc2d4703',x97:'1648311203209-da34f7d0d800',
+ x102:'1606983340126-99ab4feaa64a',x103:'1558301211-0d8c8ddee6ec',x105:'1588195538326-c5b1e9f80a1b',x109:'1525268771113-32d9e9021a97',x111:'1530103862676-de8c9debad1d',x113:'1771368188458-302d6396c33f',
+ f115:'1531058240690-006c446962d8',f116:'1780892057871-a58ab617718f',f120:'1589244159943-460088ed5c92',f121:'1565695951564-007d8f297e48',f122:'1775743093104-d8e53e5ed250',
+ n126:'1651592279151-f84dea81a03d',n128:'1767552659473-9a541393de94',v132:'1528756514091-dee5ecaa3278',v136:'1611625105602-42ee06be977e',
+ a138:'1647710782448-2e7d7f36a246',a140:'1629727687767-0aaf2d360144',a142:'1724099541163-07c86574615e',z144:'1650355648621-1a0445f7f9b4',z148:'1469259943454-aa100abba749',
+ u150:'1520302630591-fd1c66edc19d',u152:'1770349781649-b7722e0de3fc',m156:'1525498128493-380d1990a112',m158:'1776722091903-097d6dab0455'
+};
+// categories
+const CATS=[
+ {id:'roses',kk:'Раушандар',ru:'Розы',ph:'r4'},
+ {id:'peony',kk:'Пиондар',ru:'Пионы',ph:'p20'},
+ {id:'tulips',kk:'Қызғалдақтар',ru:'Тюльпаны',ph:'t26'},
+ {id:'mono',kk:'Моно букеттер',ru:'Монобукеты',ph:'h33'},
+ {id:'mix',kk:'Аралас букеттер',ru:'Сборные букеты',ph:'k80'},
+ {id:'box',kk:'Қораптағы гүлдер',ru:'Цветы в коробке',ph:'b73'},
+ {id:'basket',kk:'Себеттер',ru:'Корзины',ph:'k78'},
+ {id:'wedding',kk:'Үйлену букеті',ru:'Свадебные',ph:'w87'},
+ {id:'plants',kk:'Бөлме өсімдіктері',ru:'Комнатные растения',ph:'m156'},
+ {id:'gifts',kk:'Сыйлықтар',ru:'Подарки',ph:'x90'}];
+const OCC=[
+ {id:'bday',kk:'Туған күн',ru:'День рождения',e:'🎂'},{id:'love',kk:'Махаббат',ru:'Любимой',e:'❤️'},
+ {id:'mom',kk:'Анаға',ru:'Маме',e:'🌷'},{id:'sorry',kk:'Кешірім',ru:'Извинение',e:'🙏'},
+ {id:'wedding',kk:'Той',ru:'Свадьба',e:'💍'},{id:'thanks',kk:'Алғыс',ru:'Благодарность',e:'✨'},
+ {id:'baby',kk:'Сәби туылуы',ru:'Рождение ребёнка',e:'👶'},{id:'office',kk:'Әріптеске',ru:'Коллеге',e:'💼'}];
+// product: id, cat, kk, ru, price, old, ph[], occ[], color, stems recipe (flowerId:count), rating, reviews, hit/new
+const P=[
+ ['p1','roses','Қызыл раушан, 25 дана','25 красных роз',24900,29900,['r4','r0'],['love','bday'],'red',{rose_red:25,euc:5},4.9,184,'hit'],
+ ['p2','roses','Қызыл раушан, 51 дана','51 красная роза',48900,57900,['r0','r3'],['love','wedding'],'red',{rose_red:51},5.0,96,'hit'],
+ ['p3','roses','«Таңғы шық» қызғылт раушандар','Букет «Утренняя роса»',21500,null,['r7','r10'],['love','mom','bday'],'pink',{rose_pink:19,euc:3},4.8,73,''],
+ ['p4','roses','Ақ раушан мен эвкалипт','Белые розы с эвкалиптом',22900,null,['r14','r16'],['wedding','thanks','sorry'],'white',{rose_white:21,euc:7},4.9,58,'new'],
+ ['p5','roses','Вазадағы қызғылт раушандар','Розовые розы в вазе',33900,null,['r11','r10'],['mom','bday'],'pink',{rose_pink:35},4.7,41,''],
+ ['p6','roses','101 раушан «Шексіз»','101 роза «Бесконечность»',89000,99000,['r3','r0'],['love','wedding'],'red',{rose_red:101},5.0,37,'hit'],
+ ['p7','peony','Пиондар «Ару»','Пионы «Ару»',32900,36900,['p20','p18'],['love','mom'],'pink',{peony:15},5.0,121,'hit'],
+ ['p8','peony','Пион мен раушан','Пионы и розы',38500,null,['p22','p19'],['bday','wedding'],'pink',{peony:9,rose_pink:9,euc:3},4.9,44,'new'],
+ ['p9','peony','Маржан пиондар','Коралловые пионы',29900,null,['p19','p22'],['bday','thanks'],'pink',{peony:11},4.8,39,''],
+ ['p10','tulips','Қызғылт қызғалдақ, 25 дана','25 розовых тюльпанов',15900,18900,['t24','t27'],['mom','bday','office'],'pink',{tulip:25},4.8,212,'hit'],
+ ['p11','tulips','Көктем букеті','Весенний букет',18900,null,['t26','t25'],['mom','thanks'],'mix',{tulip:15,alstro:5,euc:3},4.7,67,'new'],
+ ['p12','tulips','Вазадағы қызғалдақтар','Тюльпаны в вазе',17500,null,['t25','t24'],['office','thanks'],'pink',{tulip:21},4.6,28,''],
+ ['p13','mono','Көк гортензия','Голубая гортензия',19900,null,['h33','h34'],['thanks','office','baby'],'blue',{hydr:5},4.8,51,''],
+ ['p14','mono','Гортензия «Аспан»','Гортензия «Небо»',27900,null,['h31','h34'],['bday','baby'],'blue',{hydr:7,euc:4},4.9,33,'new'],
+ ['p15','mono','Хризантема «Күз»','Хризантемы «Осень»',14900,16900,['c39','c38'],['office','thanks','mom'],'mix',{chrys:15},4.6,47,''],
+ ['p16','mono','Қызғылт лилиялар','Розовые лилии',23900,null,['l42','l43'],['mom','bday'],'pink',{lily:7},4.7,36,''],
+ ['p17','mono','Орхидея (кашпода)','Орхидея в кашпо',21900,null,['o51','o48'],['office','thanks','mom'],'pink',{orchid:1},4.9,62,''],
+ ['p18','mono','Гербера «Шуақ»','Герберы «Солнце»',13900,null,['g54','g58'],['office','bday'],'orange',{gerbera:15},4.6,29,''],
+ ['p19','mono','Күнбағыс букеті','Букет подсолнухов',16900,null,['s63','s62'],['thanks','office','bday'],'yellow',{sunfl:9,euc:3},4.8,55,''],
+ ['p20','mix','«Алматы алмасы» аралас букет','Сборный «Алма-Ата»',26900,null,['k80','s65'],['bday','thanks'],'mix',{rose_pink:7,sunfl:3,hydr:2,euc:4},4.9,88,'hit'],
+ ['p21','mix','«Дала» күнбағыс пен раушан','«Степь»: подсолнухи и розы',24500,null,['s60','s65'],['bday','office'],'yellow',{sunfl:5,rose_white:7,euc:3},4.7,31,''],
+ ['p22','mix','Ранункулюс пен раушан','Ранункулюсы и розы',34900,null,['n126','n128'],['love','wedding'],'pink',{ranun:11,rose_pink:7},4.9,24,'new'],
+ ['p23','mix','Альстромерия «Нәзік»','Альстромерии «Нежность»',15500,null,['a140','a138'],['mom','sorry'],'pink',{alstro:15},4.6,22,''],
+ ['p24','box','Раушан қорабы «Мейірім»','Розы в коробке «Мейирим»',27900,31900,['b73','b72'],['love','bday','mom'],'pink',{rose_pink:25},4.9,140,'hit'],
+ ['p25','box','Шляпа қорабы, аралас гүлдер','Шляпная коробка, микс',31900,null,['b74','b76'],['bday','mom'],'mix',{rose_pink:9,alstro:5,hydr:1},4.8,57,''],
+ ['p26','box','Қорап + макарон','Коробка с макарон',35900,null,['b77','b76'],['bday','thanks'],'mix',{rose_white:11,chrys:5},4.8,19,'new'],
+ ['p27','basket','Гүл себеті «Береке»','Корзина «Береке»',42900,null,['k78','k83'],['bday','thanks','office'],'mix',{rose_pink:15,sunfl:5,hydr:3,euc:6},4.9,48,''],
+ ['p28','basket','Себеттегі раушандар','Розы в корзине',36900,null,['k81','k78'],['mom','love'],'pink',{rose_pink:31},4.8,26,''],
+ ['p29','wedding','Қалыңдық букеті «Ақ кербез»','Букет невесты «Ак кербез»',29900,null,['w87','w84'],['wedding'],'white',{rose_white:15,ranun:5,euc:4},5.0,17,''],
+ ['p30','wedding','Калла букеті','Букет из калл',27500,null,['z144','z148'],['wedding','thanks'],'white',{calla:11},4.8,14,'new'],
+ ['p31','plants','Монстера','Монстера',18900,null,['m156','m158'],['office','thanks'],'green',{},4.7,21,''],
+ ['p32','plants','Суккуленттер жиынтығы','Набор суккулентов',9900,null,['u150','u152'],['office','thanks'],'green',{},4.6,18,''],
+ ['p33','plants','Лаванда (кашпода)','Лаванда в кашпо',11900,null,['v136','v132'],['office','mom'],'purple',{},4.7,15,''],
+ ['p34','gifts','Шоколадтағы құлпынай №12','Клубника в шоколаде №12',19900,23900,['x90','x91'],['love','bday'],'red',{},4.9,203,'hit'],
+ ['p35','gifts','Құлпынай қорабы «Мини»','Клубника «Мини»',12900,null,['x92','x91'],['love','thanks'],'red',{},4.8,77,''],
+ ['p36','gifts','Плюш аю 40 см','Плюшевый мишка 40 см',9900,null,['x96','x97'],['love','baby','bday'],'mix',{},4.7,64,''],
+ ['p37','gifts','Торт «Гүлдер» 1,2 кг','Торт «Цветы» 1,2 кг',17900,null,['x103','x102'],['bday'],'pink',{},4.8,39,''],
+ ['p38','gifts','Шарлар жиынтығы, 11 дана','Набор шаров, 11 шт',8900,null,['x113','x111'],['bday','baby'],'mix',{},4.6,52,'']
+].map(a=>({id:a[0],cat:a[1],kk:a[2],ru:a[3],price:a[4],old:a[5],ph:a[6],occ:a[7],color:a[8],recipe:a[9],rating:a[10],rev:a[11],tag:a[12]}));
+// flowers for constructor & warehouse
+const FL=[
+ {id:'rose_red',kk:'Қызыл раушан',ru:'Роза красная',price:690,ph:'r4',color:'#B3202E'},
+ {id:'rose_pink',kk:'Қызғылт раушан',ru:'Роза розовая',price:650,ph:'r10',color:'#E9A1AE'},
+ {id:'rose_white',kk:'Ақ раушан',ru:'Роза белая',price:650,ph:'r16',color:'#F3EEE6'},
+ {id:'peony',kk:'Пион',ru:'Пион',price:1900,ph:'p18',color:'#F2B8C6'},
+ {id:'tulip',kk:'Қызғалдақ',ru:'Тюльпан',price:450,ph:'t24',color:'#F48FA4'},
+ {id:'hydr',kk:'Гортензия',ru:'Гортензия',price:2900,ph:'h34',color:'#8FA9E0'},
+ {id:'chrys',kk:'Хризантема',ru:'Хризантема',price:690,ph:'c39',color:'#F2C1D0'},
+ {id:'lily',kk:'Лилия',ru:'Лилия',price:1500,ph:'l42',color:'#F6A5C0'},
+ {id:'gerbera',kk:'Гербера',ru:'Гербера',price:590,ph:'g54',color:'#F28C38'},
+ {id:'sunfl',kk:'Күнбағыс',ru:'Подсолнух',price:990,ph:'s63',color:'#F5C518'},
+ {id:'ranun',kk:'Ранункулюс',ru:'Ранункулюс',price:1200,ph:'n126',color:'#F7B39A'},
+ {id:'alstro',kk:'Альстромерия',ru:'Альстромерия',price:550,ph:'a140',color:'#F07FA0'},
+ {id:'calla',kk:'Калла',ru:'Калла',price:1300,ph:'z144',color:'#F4F1EA'},
+ {id:'orchid',kk:'Орхидея',ru:'Орхидея',price:12000,ph:'o51',color:'#D06AAE'},
+ {id:'euc',kk:'Эвкалипт',ru:'Эвкалипт',price:350,ph:'u152',color:'#8DA79A'}];
+const WRAPS=[{id:'kraft',kk:'Крафт',ru:'Крафт',price:900,c:'#C9A27A'},{id:'blush',kk:'Ұнтақ түсті',ru:'Пудровая',price:1200,c:'#EBC9C3'},{id:'black',kk:'Қара матовый',ru:'Чёрная матовая',price:1500,c:'#2A2626'},{id:'white',kk:'Ақ',ru:'Белая',price:1200,c:'#F5F2EE'},{id:'none',kk:'Ораусыз',ru:'Без упаковки',price:0,c:'transparent'}];
+const ADDONS=['p34','p36','p38','p37'];
+const SIZES=[{id:'S',k:0.8},{id:'M',k:1},{id:'L',k:1.45}];
+const PROMOS={FLOWER10:{pct:10,kk:'10 % жеңілдік',ru:'Скидка 10 %'},ASTANA15:{pct:15,kk:'15 % (2000 ₸ жоғары)',ru:'15 % на первый заказ'},'8MART':{pct:20,kk:'8 наурызға 20 %',ru:'20 % к 8 марта'}};
+const SLOTS=['09:00–11:00','11:00–13:00','13:00–15:00','15:00–17:00','17:00–19:00','19:00–21:00','21:00–23:00'];
+const DISTRICTS=[{kk:'Есіл ауданы',ru:'Есильский район',fee:0},{kk:'Алматы ауданы',ru:'Алматинский район',fee:1000},{kk:'Сарыарқа ауданы',ru:'Сарыаркинский район',fee:1000},{kk:'Байқоңыр ауданы',ru:'Байконурский район',fee:1000},{kk:'Нұра ауданы',ru:'Нуринский район',fee:1500},{kk:'Қала сыртында (Қосшы, Талапкер)',ru:'Пригород (Косшы, Талапкер)',fee:3500}];
+const USERS=[
+ {login:'Asik2006',pass:'Askhat2006',role:'admin',name:'Асхат Калдыбаев'},
+ {login:'klient',pass:'Klient2026',role:'client',name:'Айгерім Сейтқали',phone:'+7 701 555 12 34'},
+ {login:'florist',pass:'Florist2026',role:'florist',name:'Мадина Жұмабаева'},
+ {login:'kurier',pass:'Kurier2026',role:'courier',name:'Ерлан Тоқтаров'}];
+const REVIEWS=[
+ {n:'Дана',t:{kk:'Букет фотодағыдай болып келді, жинамас бұрын фотосын WhatsApp-қа жіберді. Анам қатты қуанды!',ru:'Букет приехал точь-в-точь как на фото, перед отправкой прислали фото в WhatsApp. Мама в восторге!'},s:5,p:'p7'},
+ {n:'Нұрлан',t:{kk:'Түнгі 23:00-де тапсырыс бердім, 70 минутта жеткізді. Курьер өте сыпайы.',ru:'Заказал в 23:00, привезли за 70 минут. Курьер очень вежливый.'},s:5,p:'p1'},
+ {n:'Алина',t:{kk:'Конструкторда өзім жинадым — пион мен эвкалипт. Бағасы бірден есептелді, ыңғайлы.',ru:'Собрала сама в конструкторе — пионы с эвкалиптом. Цена считается сразу, очень удобно.'},s:5,p:'p8'},
+ {n:'Тимур',t:{kk:'Еске салу функциясы құтқарды: әйелімнің туған күнін ұмытпадым 😅',ru:'Напоминание спасло: не забыл день рождения жены 😅'},s:5,p:'p24'}];
+
+/* FlowerShop — client + staff SPA (demo, data in localStorage) */
+const KEY='flowershop_v1';
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+let S;
+function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}
+ if(!S||S.v!==3){S=seed()} }
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const L=(kk,ru)=>S.lang==='ru'?ru:kk;
+const N=o=>o?(S.lang==='ru'?o.ru:o.kk):'';
+const fmt=n=>Math.round(n).toLocaleString('ru-RU').replace(/,/g,' ')+' ₸';
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const prod=id=>S.products.find(p=>p.id===id);
+const fl=id=>FL.find(f=>f.id===id);
+const ST={new:['Жаңа','Новый','s-new','🧾'],prep:['Жиналуда','Собирается','s-prep','💐'],ready:['Дайын','Готов','s-ready','📸'],way:['Жолда','В пути','s-way','🚗'],done:['Жеткізілді','Доставлен','s-done','✅'],cancel:['Бас тартылды','Отменён','s-cancel','✖']};
+const stName=s=>L(ST[s][0],ST[s][1]);
+const stB=s=>`<span class="st-b ${ST[s][2]}">${stName(s)}</span>`;
+const today=()=>new Date().toISOString().slice(0,10);
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)};
+const ts=()=>new Date().toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+const me=()=>S.session?USERS.find(u=>u.login===S.session):null;
+const ICON={
+ search:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+ heart:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.7 1.2 5.2 3 1.5-1.8 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg>',
+ bag:'<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+ user:'<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
+ wa:'<svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.4 2.5 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.2 1.6z"/></svg>'
+};
+
+/* ---------- seed ---------- */
+function seed(){
+ const d=today();
+ const products=P.map(p=>({...p,active:true}));
+ const stock=[
+  ['b1','rose_red',420,100,'Holland Flowers KZ',380,addDays(d,-3),addDays(d,6)],['b2','rose_pink',260,80,'Holland Flowers KZ',350,addDays(d,-5),addDays(d,2)],
+  ['b3','rose_white',180,80,'Ecuador Roses',360,addDays(d,-2),addDays(d,7)],['b4','peony',45,40,'Dutch Direct',1100,addDays(d,-4),addDays(d,1)],
+  ['b5','tulip',520,150,'Алматы гүл базасы',220,addDays(d,-1),addDays(d,5)],['b6','hydr',22,25,'Dutch Direct',1700,addDays(d,-3),addDays(d,4)],
+  ['b7','chrys',140,60,'Алматы гүл базасы',380,addDays(d,-2),addDays(d,10)],['b8','lily',36,30,'Dutch Direct',850,addDays(d,-1),addDays(d,6)],
+  ['b9','gerbera',90,50,'Алматы гүл базасы',300,addDays(d,-4),addDays(d,3)],['b10','sunfl',48,30,'Ecuador Roses',560,addDays(d,-2),addDays(d,5)],
+  ['b11','ranun',30,30,'Dutch Direct',700,addDays(d,-1),addDays(d,5)],['b12','alstro',160,60,'Алматы гүл базасы',290,addDays(d,-3),addDays(d,8)],
+  ['b13','calla',28,20,'Dutch Direct',780,addDays(d,-2),addDays(d,6)],['b14','orchid',9,5,'Orchid House',7200,addDays(d,-10),addDays(d,60)],
+  ['b15','euc',300,100,'Алматы гүл базасы',150,addDays(d,-2),addDays(d,12)]
+ ].map(a=>({id:a[0],fl:a[1],qty:a[2],min:a[3],sup:a[4],cost:a[5],recv:a[6],exp:a[7]}));
+ const names=[['Айгерім Сейтқали','+7 701 555 12 34'],['Дана Ахметова','+7 707 311 45 90'],['Нұрлан Бекұлы','+7 775 220 18 66'],['Алина Ким','+7 702 418 77 01'],['Тимур Оспанов','+7 747 901 32 15'],['Жанар Сәрсенова','+7 705 664 08 23'],['Ерасыл Мұратов','+7 778 155 49 30'],['Мария Петрова','+7 700 777 63 81']];
+ const addr=['Мәңгілік Ел 55/14, 7 пәтер','Тұран 37, 112 пәтер','Кенесары 40, 3 подъезд','Сығанақ 18','Қабанбай батыр 11, 45 пәтер','Әл-Фараби 9','Достық 5, офис 301','Жұбанов 14/2'];
+ const plan=[['p24',1,'done',6],['p1',1,'done',5],['p34',2,'done',4],['p7',1,'done',3],['p10',1,'done',2],['p20',1,'done',1],['p2',1,'way',0],['p8',1,'ready',0],['p14',1,'prep',0],['p3',1,'new',0],['p27',1,'new',0],['p11',2,'new',0]];
+ const orders=plan.map((x,i)=>{const p=products.find(q=>q.id===x[0]);const [nm,ph]=names[i%8];
+  const sub=p.price*x[1],fee=i%3?1000:0;const date=addDays(d,-x[3]);
+  const o={id:'FS-'+(10231+i),created:date+'T'+String(9+i%10).padStart(2,'0')+':1'+i%6,date,slot:SLOTS[i%7],items:[{pid:p.id,qty:x[1],size:'M',addons:[],price:p.price}],
+   customer:{name:nm,phone:ph,login:i===0||i===9?'klient':null},recipient:{name:i%2?nm:'Сюрприз 🎁',phone:ph},mode:i===5?'pickup':'courier',district:i%5,address:addr[i%8],card:i%2?'':'Туған күніңмен!',
+   pay:['kaspi','card','kaspi','cash'][i%4],paid:x[2]!=='new'||i%2===0,promo:null,discount:0,bonus:0,fee,total:sub+fee,status:x[2],florist:x[2]==='new'?null:'florist',courier:['way','done'].includes(x[2])?'kurier':(x[2]==='ready'?'kurier':null),photo:['ready','way','done'].includes(x[2])?p.ph[0]:null,
+   log:[{t:date+' 09:0'+i%9,who:'web',s:'new'}]};
+  if(x[2]!=='new')o.log.push({t:date+' 10:1'+i%9,who:'Мадина (флорист)',s:'prep'});
+  if(['ready','way','done'].includes(x[2]))o.log.push({t:date+' 11:2'+i%9,who:'Мадина (флорист)',s:'ready'});
+  if(['way','done'].includes(x[2]))o.log.push({t:date+' 12:0'+i%9,who:'Ерлан (курьер)',s:'way'});
+  if(x[2]==='done'){o.log.push({t:date+' 13:1'+i%9,who:'Ерлан (курьер)',s:'done'});o.delivered=date+' 13:1'+i%9}
+  return o});
+ const revenue=[412000,538000,467000,610000,725000,688000,0];
+ return {v:3,lang:'kk',cart:[],favs:[],session:null,products,stock,orders,revenue,
+  promos:Object.entries(PROMOS).map(([c,p])=>({code:c,pct:p.pct,active:true,used:[14,6,31][Object.keys(PROMOS).indexOf(c)]})),
+  dates:[{n:'Анамның туған күні',d:'03-08'},{n:'Үйлену тойы',d:'06-21'}],
+  bonus:{klient:3450},nextId:10243,builder:{},wrap:'kraft'};
+}
+
+/* ---------- shell ---------- */
+function shell(inner){
+ const u=me(), cc=S.cart.reduce((a,c)=>a+c.qty,0);
+ return `<div class="top"><div class="wrap"><div class="tick"><span>🚚 ${L('Астана бойынша 90 минутта жеткізу · 24/7','Доставка по Астане за 90 минут · 24/7')}</span><span>📸 ${L('Жібермес бұрын букеттің фотосы','Фото букета перед отправкой')}</span><span>🎁 ${L('Ашықхат тегін','Открытка бесплатно')}</span></div>
+ <div class="rt"><a href="tel:+77015550000">+7 701 555 00 00</a><div class="lang"><button class="${S.lang==='kk'?'on':''}" onclick="setLang('kk')">ҚАЗ</button><button class="${S.lang==='ru'?'on':''}" onclick="setLang('ru')">РУС</button></div></div></div></div>
+ <header class="h"><div class="wrap"><a href="#/" class="logo"><i>✿</i><span>FlowerShop<small>Astana · since 2019</small></span></a>
+ <nav class="mn"><a href="#/catalog">${L('Каталог','Каталог')}</a><a href="#/catalog?cat=roses">${L('Раушандар','Розы')}</a><a class="x2" href="#/catalog?cat=box">${L('Қораптағы','В коробке')}</a><a href="#/builder">${L('Букет құрастыру','Конструктор')}</a><a href="#/track">${L('Қадағалау','Трекинг')}</a><a class="x2" href="#/catalog?cat=gifts">${L('Сыйлықтар','Подарки')}</a></nav>
+ <div class="srch">${ICON.search}<input id="q" placeholder="${L('Букет, гүл немесе сыйлық іздеу…','Найти букет, цветы или подарок…')}" oninput="sug(this.value)" onkeydown="if(event.key==='Enter')go('#/catalog?q='+encodeURIComponent(this.value))" onblur="setTimeout(()=>$('.sug').style.display='none',200)"><div class="sug"></div></div>
+ <div class="icons"><a class="ib" href="#/catalog?fav=1" title="${L('Таңдаулылар','Избранное')}">${ICON.heart}${S.favs.length?`<b>${S.favs.length}</b>`:''}</a><button class="ib" onclick="openCart()" title="${L('Себет','Корзина')}">${ICON.bag}${cc?`<b>${cc}</b>`:''}</button></div>
+ ${u?`<a class="who" href="${u.role==='client'?'#/profile':'#/staff'}"><span class="av">${u.name[0]}</span><span>${esc(u.name.split(' ')[0])}</span></a>`:`<button class="who" onclick="openLogin()"><span class="av">${ICON.user}</span><span>${L('Кіру','Войти')}</span></button>`}
+ </div></header><main>${inner}</main>${footer()}<a class="fab" href="https://wa.me/77015550000" target="_blank" title="WhatsApp">${ICON.wa.replace('#25D366','#fff').replace('22','30').replace('22','30')}</a>`;
+}
+function footer(){return `<footer><div class="wrap"><div class="cols">
+ <div><a class="logo" href="#/"><i>✿</i>FlowerShop</a><p style="margin:14px 0;font-size:14px;max-width:300px">${L('Астанадағы гүл дүкені: балғын гүлдер, авторлық букеттер және 90 минутта жеткізу.','Цветочный магазин в Астане: свежие цветы, авторские букеты и доставка за 90 минут.')}</p><div class="map"><iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=71.40%2C51.11%2C71.45%2C51.14&layer=mapnik&marker=51.128%2C71.430"></iframe></div></div>
+ <div><h5>${L('Каталог','Каталог')}</h5>${CATS.slice(0,7).map(c=>`<a href="#/catalog?cat=${c.id}">${N(c)}</a>`).join('')}</div>
+ <div><h5>${L('Клиентке','Покупателям')}</h5><a href="#/builder">${L('Букет конструкторы','Конструктор букета')}</a><a href="#/track">${L('Тапсырысты қадағалау','Отследить заказ')}</a><a href="#/" onclick="setTimeout(()=>$('#faq').scrollIntoView(),50)">${L('Жеткізу және төлем','Доставка и оплата')}</a><a href="#/profile">${L('Жеке кабинет','Личный кабинет')}</a><a href="#/staff">${L('Қызметкерлерге','Сотрудникам')}</a></div>
+ <div><h5>${L('Байланыс','Контакты')}</h5><a href="tel:+77015550000">+7 701 555 00 00</a><a href="https://wa.me/77015550000" target="_blank">WhatsApp</a><a>hello@flowershop.kz</a><a>${L('Астана, Тұран даңғ. 24, 09:00–23:00','Астана, пр. Туран 24, 09:00–23:00')}</a><a>Instagram · TikTok · 2ГИС</a></div></div>
+ <div class="cp"><span>© 2026 FlowerShop. ${L('Курстық жұмыс: Калдыбаев Асхат, 24-03 тобы','Курсовая работа: Калдыбаев Асхат, группа 24-03')}</span><span>Kaspi · Visa · Mastercard · Apple Pay</span></div></div></footer>`}
+
+/* ---------- product card ---------- */
+function card(p){
+ const fav=S.favs.includes(p.id);
+ return `<article class="pc"><div class="im" onclick="go('#/p/${p.id}')"><img loading="lazy" src="${U(PH[p.ph[0]],600)}" alt="${esc(N(p))}"><img loading="lazy" src="${U(PH[p.ph[1]||p.ph[0]],600)}" alt="">
+ <div class="tags">${p.tag==='hit'?`<span class="tag hit">${L('Хит','Хит')}</span>`:''}${p.tag==='new'?`<span class="tag new">${L('Жаңа','Новинка')}</span>`:''}${p.old?`<span class="tag sale">−${Math.round((1-p.price/p.old)*100)}%</span>`:''}</div></div>
+ <button class="fav ${fav?'on':''}" onclick="togFav('${p.id}',this)" aria-label="fav">${ICON.heart}</button>
+ <div class="bd"><span class="eta">⚡ ${L('Бүгін 90 минутта','Сегодня за 90 минут')}</span><div class="nm" onclick="go('#/p/${p.id}')">${esc(N(p))}</div><div class="rt"><b>★</b> ${p.rating.toFixed(1)} · ${p.rev} ${L('пікір','отзывов')}</div>
+ <div class="pr"><b>${fmt(p.price)}</b>${p.old?`<s>${fmt(p.old)}</s>`:''}</div>
+ <div class="ac"><button class="btn acc" onclick="addCart('${p.id}')">${L('Себетке','В корзину')}</button><a class="wa2" target="_blank" href="https://wa.me/77015550000?text=${encodeURIComponent(L('Сәлеметсіз бе! Тапсырыс бергім келеді: ','Здравствуйте! Хочу заказать: ')+N(p))}">${ICON.wa}</a></div></div></article>`}
+
+/* ---------- pages ---------- */
+function pHome(){
+ const hits=S.products.filter(p=>p.tag==='hit'&&p.active), news=S.products.filter(p=>p.tag==='new'&&p.active);
+ return `<section class="hero"><div class="wrap"><div>
+  <span class="tag" style="background:var(--blush);color:var(--acc)">🌷 ${L('Астанадағы №1 гүл жеткізу','Доставка цветов №1 в Астане')}</span>
+  <h1 style="margin-top:18px">${L('Сезімді <em>гүлмен</em><br>жеткізейік','Скажите это <em>цветами</em>')}</h1>
+  <p class="lead">${L('Балғын гүлдер күн сайын келеді. Букетті жібермес бұрын фотосын WhatsApp-қа жібереміз, ал Астана бойынша 90 минутта жеткіземіз.','Свежие поставки каждый день. Перед отправкой присылаем фото букета в WhatsApp и доставляем по Астане за 90 минут.')}</p>
+  <div class="cta"><a class="btn acc" href="#/catalog">${L('Букет таңдау','Выбрать букет')} →</a><a class="btn ghost" href="#/builder">✿ ${L('Өзім құрастырамын','Собрать самому')}</a></div>
+  <div class="stats"><div><b>12 000+</b><span>${L('жеткізілген букет','доставленных букетов')}</span></div><div><b>4.9★</b><span>${L('2ГИС рейтингі','рейтинг в 2ГИС')}</span></div><div><b>90 ${L('мин','мин')}</b><span>${L('орташа жеткізу','средняя доставка')}</span></div></div></div>
+  <div class="collage"><img class="a" src="${U(PH.p20,900)}" alt=""><img class="b" src="${U(PH.b73,600)}" alt=""><img class="c" src="${U(PH.f122,600)}" alt="">
+  <div class="float f1"><span class="dot" style="background:#E9F9EF">📸</span><div><b>${L('Фото жіберілді','Фото отправлено')}</b>${L('Букет FS-10238 дайын','Букет FS-10238 готов')}</div></div>
+  <div class="float f2"><span class="dot" style="background:var(--blush)">🚗</span><div><b>${L('Курьер жолда','Курьер в пути')}</b>${L('~ 24 минут','~ 24 минуты')}</div></div></div></div>
+  <div class="wrap"><div class="usp">
+  <div><i>🌿</i><p><b>${L('Тек балғын гүл','Только свежие цветы')}</b><span>${L('Партиялар мерзімімен есептеледі','Партии с контролем сроков')}</span></p></div>
+  <div><i>📸</i><p><b>${L('Жібермес бұрын фото','Фото до отправки')}</b><span>${L('Ұнамаса – тегін қайта жинаймыз','Не понравится — пересоберём')}</span></p></div>
+  <div><i>⏱</i><p><b>${L('Нақты уақытқа жеткізу','Доставка ко времени')}</b><span>${L('2 сағаттық аралықпен','Интервалы по 2 часа')}</span></p></div>
+  <div><i>💳</i><p><b>Kaspi QR · ${L('карта','карта')}</b><span>${L('Бөліп төлеу де бар','Есть рассрочка Kaspi')}</span></p></div></div></div></section>
+ <section class="s" style="padding-top:20px"><div class="wrap"><div class="sh"><div><h2>${L('Санаттар','Категории')}</h2><p>${L('Кез келген оқиғаға сай букет','Букеты на любой случай')}</p></div><a class="more" href="#/catalog">${L('Бүкіл каталог','Весь каталог')} →</a></div>
+ <div class="cats">${CATS.slice(0,10).map(c=>`<a class="cat" href="#/catalog?cat=${c.id}"><img loading="lazy" src="${U(PH[c.ph],500)}" alt=""><span>${N(c)}</span></a>`).join('')}</div>
+ <div class="occs" style="margin-top:22px">${OCC.map(o=>`<a class="chip" href="#/catalog?occ=${o.id}">${o.e} ${N(o)}</a>`).join('')}</div></div></section>
+ <section class="s" style="background:#fff"><div class="wrap"><div class="sh"><div><h2>${L('Хиттер','Хиты продаж')}</h2><p>${L('Ең көп таңдалатын букеттер','Самые популярные букеты')}</p></div><a class="more" href="#/catalog?sort=pop">${L('Барлығы','Смотреть все')} →</a></div><div class="grid">${hits.slice(0,8).map(card).join('')}</div></div></section>
+ <section class="s"><div class="wrap"><div class="band"><div class="tx"><span class="tag" style="background:var(--gold);color:#fff">${L('Тек бізде','Только у нас')}</span><h2 style="margin-top:16px">${L('Букетті өзіңіз құрастырыңыз','Соберите букет сами')}</h2><p>${L('Гүлді, санын және орауды таңдаңыз — бағасы бірден есептеледі. Флорист дәл солай жинайды да, жібермес бұрын фотосын жібереді.','Выберите цветы, количество и упаковку — цена считается сразу. Флорист соберёт именно так и пришлёт фото до отправки.')}</p><a class="btn light" href="#/builder">✿ ${L('Конструкторды ашу','Открыть конструктор')}</a></div><img loading="lazy" src="${U(PH.f116,900)}" alt=""></div></div></section>
+ <section class="s" style="padding-top:10px"><div class="wrap"><div class="sh"><div><h2>${L('Жаңа келгендер','Новинки')}</h2></div><a class="more" href="#/catalog?sort=new">${L('Барлығы','Все новинки')} →</a></div><div class="grid">${news.slice(0,4).map(card).join('')}</div></div></section>
+ <section class="s" style="background:#fff"><div class="wrap"><div class="sh"><div><h2>${L('Клиенттер пікірі','Отзывы клиентов')}</h2><p>★ 4.9 · 2 140 ${L('пікір','отзывов')}</p></div></div>
+ <div class="revs">${REVIEWS.map(r=>{const p=prod(r.p);return `<div class="rev"><div class="st">★★★★★</div><p>${N(r.t)}</p><div class="u"><img src="${U(PH[p.ph[0]],120)}" alt=""><div><b>${r.n}</b><br><span style="color:var(--mut)">${esc(N(p))}</span></div></div></div>`}).join('')}</div></div></section>
+ <section class="s" id="faq"><div class="wrap split"><div><h2 class="serif" style="font-size:48px;font-weight:500;line-height:1">${L('Жеткізу және төлем','Доставка и оплата')}</h2><p style="color:var(--mut);margin:14px 0 24px">${L('Есіл ауданында жеткізу тегін, қала ішінде – 1000 ₸-ден. 30 000 ₸-ден жоғары тапсырысқа – бүкіл қала бойынша тегін.','По Есильскому району — бесплатно, по городу — от 1000 ₸. При заказе от 30 000 ₸ — бесплатно по всему городу.')}</p><img style="border-radius:26px;height:300px;width:100%;object-fit:cover" loading="lazy" src="${U(PH.f120,900)}" alt=""></div>
+ <div class="faq">${[[L('Жеткізу қанша уақыт алады?','Сколько занимает доставка?'),L('Дайын букет Астана бойынша орташа 90 минутта жеткізіледі. Нақты уақытты 2 сағаттық аралықпен таңдауға болады.','Готовый букет доставляем по Астане в среднем за 90 минут. Можно выбрать точный интервал в 2 часа.')],[L('Букет фотодағыдай бола ма?','Букет будет как на фото?'),L('Иә. Флорист жинаған соң фотосын WhatsApp-қа жібереді, келіскеннен кейін ғана курьерге береміз.','Да. Флорист присылает фото собранного букета в WhatsApp, и только после согласования передаём курьеру.')],[L('Қалай төлеуге болады?','Как можно оплатить?'),L('Kaspi QR, Kaspi Red бөліп төлеу, Visa/Mastercard картасы немесе алған кезде қолма-қол.','Kaspi QR, рассрочка Kaspi Red, карта Visa/Mastercard или наличными при получении.')],[L('Алушыға сыйлық екенін айтпай жеткізе аласыздар ма?','Можно доставить анонимно?'),L('Иә, тапсырыс бергенде «аноним» белгісін қойыңыз — курьер жіберушінің атын айтпайды.','Да, отметьте «анонимно» при оформлении — курьер не назовёт отправителя.')],[L('Мерекелерді еске сала аласыздар ма?','Напомните о праздниках?'),L('Жеке кабинетке маңызды күндерді қосыңыз — 3 күн бұрын WhatsApp-қа еске салу мен жеке жеңілдік келеді.','Добавьте важные даты в личном кабинете — за 3 дня придёт напоминание в WhatsApp и персональная скидка.')]].map(([q,a],i)=>`<details ${i?'':'open'}><summary>${q}</summary><p>${a}</p></details>`).join('')}</div></div></section>`;
+}
+function pCatalog(qs){
+ const cat=qs.get('cat'),occ=qs.get('occ'),q=(qs.get('q')||'').toLowerCase(),fav=qs.get('fav'),sort=qs.get('sort')||'pop';
+ const F=S.flt=S.flt||{};
+ let list=S.products.filter(p=>p.active);
+ if(cat)list=list.filter(p=>p.cat===cat);
+ if(occ)list=list.filter(p=>p.occ.includes(occ));
+ if(fav)list=list.filter(p=>S.favs.includes(p.id));
+ if(q)list=list.filter(p=>(p.kk+' '+p.ru).toLowerCase().includes(q));
+ if(F.color)list=list.filter(p=>p.color===F.color);
+ if(F.min)list=list.filter(p=>p.price>=F.min); if(F.max)list=list.filter(p=>p.price<=F.max);
+ if(F.sale)list=list.filter(p=>p.old);
+ const so={pop:(a,b)=>b.rev-a.rev,cheap:(a,b)=>a.price-b.price,exp:(a,b)=>b.price-a.price,new:(a,b)=>(b.tag==='new')-(a.tag==='new'),rate:(a,b)=>b.rating-a.rating}[sort];list.sort(so);
+ const title=fav?L('Таңдаулылар','Избранное'):cat?N(CATS.find(c=>c.id===cat)):occ?N(OCC.find(o=>o.id===occ)):q?L('Іздеу: ','Поиск: ')+esc(q):L('Барлық букеттер','Все букеты');
+ const cols={red:'#B3202E',pink:'#EFA3B4',white:'#F3EEE6',blue:'#8FA9E0',yellow:'#F5C518',orange:'#F28C38',purple:'#9A7BC9',green:'#6E8B74',mix:'conic-gradient(#B3202E,#F5C518,#8FA9E0,#EFA3B4,#B3202E)'};
+ const link=(k,v)=>{const n=new URLSearchParams(qs);v==null?n.delete(k):n.set(k,v);return '#/catalog?'+n};
+ return `<div class="wrap"><div class="crumbs"><a href="#/">${L('Басты бет','Главная')}</a> / ${title}</div>
+ <div class="sh" style="margin-top:10px"><div><h2>${title}</h2><p>${list.length} ${L('тауар','товаров')}</p></div></div>
+ <div class="occs" style="margin-bottom:22px"><a class="chip ${!cat?'on':''}" href="${link('cat',null)}">${L('Барлығы','Все')}</a>${CATS.map(c=>`<a class="chip ${cat===c.id?'on':''}" href="${link('cat',c.id)}">${N(c)}</a>`).join('')}</div>
+ <div class="cat-l"><aside class="filters"><h4>${L('Оқиға','Повод')}</h4>${OCC.map(o=>`<label><input type="checkbox" ${occ===o.id?'checked':''} onchange="go('${link('occ',occ===o.id?null:o.id)}')"> ${o.e} ${N(o)}</label>`).join('')}
+ <h4>${L('Түсі','Цвет')}</h4><div class="sw">${Object.entries(cols).map(([k,c])=>`<button title="${k}" class="${F.color===k?'on':''}" style="background:${c}" onclick="S.flt.color=S.flt.color==='${k}'?null:'${k}';render()"></button>`).join('')}</div>
+ <h4>${L('Бағасы, ₸','Цена, ₸')}</h4><div class="range"><input type="number" placeholder="${L('бастап','от')}" value="${F.min||''}" onchange="S.flt.min=+this.value||null;render()"><input type="number" placeholder="${L('дейін','до')}" value="${F.max||''}" onchange="S.flt.max=+this.value||null;render()"></div>
+ <div class="occs" style="margin-top:10px">${[[0,15000],[15000,30000],[30000,0]].map(([a,b])=>`<button class="chip" style="height:32px;font-size:12.5px" onclick="S.flt.min=${a||'null'};S.flt.max=${b||'null'};render()">${a?fmt(a):''}${a&&b?'–':''}${b?(a?'':L('дейін ','до '))+fmt(b):'+'}</button>`).join('')}</div>
+ <h4>${L('Басқа','Другое')}</h4><label><input type="checkbox" ${F.sale?'checked':''} onchange="S.flt.sale=this.checked;render()"> 🔥 ${L('Жеңілдікпен','Со скидкой')}</label>
+ <button class="btn ghost sm" style="width:100%;margin-top:16px" onclick="S.flt={};go('#/catalog')">${L('Сүзгіні тазалау','Сбросить фильтры')}</button></aside>
+ <div><div class="toolbar"><span style="color:var(--mut);font-size:14px">${L('Бүгін 23:00-ге дейін жеткізу','Доставка сегодня до 23:00')}</span><select class="sel" onchange="go('${link('sort','')}'.replace('sort=','sort='+this.value))">${[['pop',L('Танымал','Популярные')],['cheap',L('Арзаннан','Сначала дешевле')],['exp',L('Қымбаттан','Сначала дороже')],['rate',L('Рейтинг','По рейтингу')],['new',L('Жаңалар','Новинки')]].map(([v,t])=>`<option value="${v}" ${sort===v?'selected':''}>${t}</option>`).join('')}</select></div>
+ ${list.length?`<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr))">${list.map(card).join('')}</div>`:`<div class="empty">🌾 ${L('Ештеңе табылмады. Сүзгіні өзгертіп көріңіз.','Ничего не найдено. Попробуйте изменить фильтры.')}</div>`}</div></div></div><div style="height:60px"></div>`;
+}
+let PS={};
+function pProduct(id){
+ const p=prod(id); if(!p)return pCatalog(new URLSearchParams());
+ if(PS.id!==id)PS={id,img:0,size:'M',qty:1,addons:[],card:''};
+ const sz=SIZES.find(s=>s.id===PS.size), price=Math.round(p.price*sz.k/100)*100;
+ const addTot=PS.addons.reduce((a,x)=>a+prod(x).price,0);
+ const isFlower=Object.keys(p.recipe).length>0;
+ const sim=S.products.filter(x=>x.id!==id&&x.active&&(x.cat===p.cat||x.occ.some(o=>p.occ.includes(o)))).slice(0,4);
+ return `<div class="wrap"><div class="crumbs"><a href="#/">${L('Басты бет','Главная')}</a> / <a href="#/catalog?cat=${p.cat}">${N(CATS.find(c=>c.id===p.cat))}</a> / ${esc(N(p))}</div>
+ <div class="pp"><div class="gal"><div class="th">${p.ph.map((k,i)=>`<img class="${PS.img===i?'on':''}" src="${U(PH[k],200)}" onclick="PS.img=${i};render()" alt="">`).join('')}</div><div class="main"><img src="${U(PH[p.ph[PS.img]],1100)}" alt="${esc(N(p))}"></div></div>
+ <div class="pi"><div style="display:flex;gap:8px">${p.tag==='hit'?`<span class="tag hit">Хит</span>`:''}${p.tag==='new'?`<span class="tag new">${L('Жаңа','Новинка')}</span>`:''}<span class="tag" style="background:var(--sage2);color:var(--sage)">✓ ${L('Қоймада бар','В наличии')}</span></div>
+ <h1>${esc(N(p))}</h1><div style="color:var(--mut);font-size:14px"><b style="color:#E0A100">★ ${p.rating.toFixed(1)}</b> · ${p.rev} ${L('пікір','отзывов')} · ${L('Артикул','Артикул')} ${p.id.toUpperCase()}</div>
+ <div class="price"><b>${fmt(price)}</b>${p.old&&PS.size==='M'?`<s>${fmt(p.old)}</s>`:''}</div>
+ ${isFlower?`<div class="opt"><h5>${L('Өлшемі','Размер')}</h5><div class="seg">${SIZES.map(s=>`<button class="${PS.size===s.id?'on':''}" onclick="PS.size='${s.id}';render()"><b>${s.id}</b><small>${fmt(Math.round(p.price*s.k/100)*100)}</small></button>`).join('')}</div></div>
+ <div class="opt"><h5>${L('Құрамы','Состав')} (${L('рецептура','рецептура')})</h5><ul class="recipe">${Object.entries(p.recipe).map(([f,n])=>`<li><span>${N(fl(f))}</span><b>${Math.max(1,Math.round(n*sz.k))} ${L('дана','шт')}</b></li>`).join('')}<li><span>${L('Орау, лента','Упаковка, лента')}</span><b>✓</b></li></ul></div>
+ <div class="opt"><h5>${L('Ашықхат мәтіні (тегін)','Текст открытки (бесплатно)')}</h5><textarea class="card" maxlength="200" placeholder="${L('Мысалы: Туған күніңмен, жаным!','Например: С днём рождения, любимая!')}" oninput="PS.card=this.value">${esc(PS.card)}</textarea></div>
+ <div class="opt"><h5>${L('Букетке қосу','Добавить к букету')}</h5><div class="addons">${ADDONS.map(a=>{const x=prod(a);return `<div class="addon ${PS.addons.includes(a)?'on':''}" onclick="togAdd('${a}')"><img src="${U(PH[x.ph[0]],240)}" alt=""><div>${esc(N(x)).slice(0,26)}<br><b>+${fmt(x.price)}</b></div></div>`}).join('')}</div></div>`:''}
+ <div class="buy"><div class="qty"><button onclick="PS.qty=Math.max(1,PS.qty-1);render()">−</button><span>${PS.qty}</span><button onclick="PS.qty++;render()">+</button></div><button class="btn acc" onclick="addCart('${p.id}',true)">${L('Себетке қосу','В корзину')} · ${fmt((price+addTot)*PS.qty)}</button></div>
+ <button class="btn ghost" style="width:100%;margin-top:10px;height:50px" onclick="addCart('${p.id}',true);go('#/checkout')">⚡ ${L('Бір басумен сатып алу','Купить в 1 клик')}</button>
+ <div class="guar"><div>📸 ${L('Жібермес бұрын фото','Фото перед отправкой')}</div><div>🚚 ${L('90 минутта жеткізу','Доставка за 90 минут')}</div><div>🌿 ${L('7 күн балғындық кепілі','Гарантия свежести 7 дней')}</div><div>💳 Kaspi QR · Kaspi Red</div></div></div></div>
+ <div class="sh"><h2 style="font-size:38px">${L('Ұқсас букеттер','Похожие букеты')}</h2></div><div class="grid">${sim.map(card).join('')}</div><div style="height:60px"></div></div>`;
+}
+function togAdd(a){PS.addons=PS.addons.includes(a)?PS.addons.filter(x=>x!==a):[...PS.addons,a];render()}
+
+/* builder */
+function pBuilder(){
+ const B=S.builder, wrap=WRAPS.find(w=>w.id===S.wrap);
+ const lines=Object.entries(B).filter(([,n])=>n>0);
+ const stems=lines.reduce((a,[,n])=>a+n,0);
+ const sum=lines.reduce((a,[f,n])=>a+fl(f).price*n,0)+(stems?wrap.price+1500:0);
+ // positions
+ let buds=[],k=0;lines.forEach(([f,n])=>{for(let i=0;i<Math.min(n,25);i++){buds.push(f)}});
+ buds=buds.slice(0,60);
+ const pos=buds.map((f,i)=>{const a=i*2.399,r=Math.sqrt(i+0.5)*17;return `<span class="bud" style="left:calc(50% + ${Math.cos(a)*r-22}px);top:${110+Math.sin(a)*r*0.7-22}px;background-image:url(${U(PH[fl(f).ph],100)});z-index:${100-i}"></span>`});
+ return `<div class="wrap"><div class="crumbs"><a href="#/">${L('Басты бет','Главная')}</a> / ${L('Букет конструкторы','Конструктор букета')}</div>
+ <div class="sh" style="margin-top:10px"><div><h2>${L('Букетті өзіңіз құрастырыңыз','Соберите свой букет')}</h2><p>${L('Гүлдерді таңдаңыз — бағасы бірден есептеледі. Флорист сіздің рецептіңіз бойынша жинайды.','Выберите цветы — цена считается мгновенно. Флорист соберёт строго по вашему рецепту.')}</p></div></div>
+ <div class="kon"><div><div class="flw">${FL.map(f=>{const n=B[f.id]||0;const st=S.stock.filter(b=>b.fl===f.id).reduce((a,b)=>a+b.qty,0);return `<div class="fl ${n?'on':''}"><img loading="lazy" src="${U(PH[f.ph],400)}" alt=""><div class="b"><div><b>${N(f)}</b><small>${fmt(f.price)} / ${L('дана','шт')} · ${st?L('қоймада '+st,'в наличии '+st):L('жоқ','нет')}</small></div><div class="qty"><button onclick="bq('${f.id}',-1)">−</button><span>${n}</span><button onclick="bq('${f.id}',1)" ${n>=st?'disabled':''}>+</button></div></div></div>`}).join('')}</div>
+ <div class="box" style="margin-top:20px"><h3>${L('Орау','Упаковка')}</h3><div class="radio">${WRAPS.map(w=>`<button class="${S.wrap===w.id?'on':''}" onclick="S.wrap='${w.id}';save();render()"><span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:${w.c};border:1px solid var(--line);vertical-align:-3px;margin-right:6px"></span>${N(w)}<small>${w.price?'+'+fmt(w.price):L('тегін','бесплатно')}</small></button>`).join('')}</div></div></div>
+ <aside class="prev"><div class="stage" style="--wc:${wrap.c}"><div class="wrapper"></div>${pos.join('')}${!stems?`<div class="hint">✿<br>${L('Гүл қосыңыз — букет осы жерде пайда болады','Добавьте цветы — букет появится здесь')}</div>`:''}</div>
+ <div style="display:flex;justify-content:space-between;font-size:14px;color:var(--mut)"><span>${stems} ${L('сабақ','стеблей')}</span><span>${stems<5&&stems?L('кемінде 5 сабақ','минимум 5 стеблей'):''}</span></div>
+ <div class="lines">${lines.map(([f,n])=>`<div><span>${N(fl(f))} × ${n}</span><b>${fmt(fl(f).price*n)}</b></div>`).join('')}${stems?`<div><span>${L('Орау','Упаковка')}: ${N(wrap)}</span><b>${fmt(wrap.price)}</b></div><div><span>${L('Флорист жұмысы','Работа флориста')}</span><b>${fmt(1500)}</b></div>`:''}</div>
+ <div class="tot"><span>${L('Жиыны','Итого')}</span><b>${fmt(sum)}</b></div>
+ <button class="btn acc" style="width:100%;margin-top:14px;height:52px" ${stems<5?'disabled':''} onclick="addBuilder(${sum})">${L('Себетке қосу','В корзину')}</button>
+ <button class="btn ghost sm" style="width:100%;margin-top:8px" onclick="S.builder={};save();render()">${L('Тазалау','Очистить')}</button></aside></div><div style="height:60px"></div></div>`;
+}
+function bq(f,d){S.builder[f]=Math.max(0,(S.builder[f]||0)+d);save();render()}
+function addBuilder(sum){const r={...S.builder};Object.keys(r).forEach(k=>!r[k]&&delete r[k]);
+ S.cart.push({key:'c'+Date.now(),custom:true,kk:'Жеке букет',ru:'Авторский букет',ph:fl(Object.keys(r)[0]).ph,price:sum,qty:1,recipe:r,wrap:S.wrap,size:'M',addons:[],card:''});
+ S.builder={};save();render();openCart();toast('✿ '+L('Сіздің букетіңіз себетте','Ваш букет в корзине'))}
+
+/* cart */
+function addCart(id,full){const p=prod(id);let size='M',addons=[],card='',qty=1;
+ if(full&&PS.id===id){size=PS.size;addons=PS.addons;card=PS.card;qty=PS.qty}
+ const isFl=Object.keys(p.recipe).length>0;const price=isFl?Math.round(p.price*SIZES.find(s=>s.id===size).k/100)*100:p.price;
+ const key=id+size+addons.join();const ex=S.cart.find(c=>c.key===key&&!c.card);
+ if(ex&&!card)ex.qty+=qty;else S.cart.push({key,pid:id,size,addons:[...addons],card,qty,price});
+ save();render();toast('🛍 '+esc(N(p))+' — '+L('себетке қосылды','добавлено в корзину'))}
+const lineTotal=c=>(c.price+(c.addons||[]).reduce((a,x)=>a+prod(x).price,0))*c.qty;
+const cartSum=()=>S.cart.reduce((a,c)=>a+lineTotal(c),0);
+const cName=c=>c.custom?N(c):N(prod(c.pid));
+const cPh=c=>c.custom?PH[c.ph]:PH[prod(c.pid).ph[0]];
+function openCart(){const s=cartSum(),free=30000;
+ $('#drawer').innerHTML=`<div class="hd"><h3>${L('Себет','Корзина')}</h3><button class="x" onclick="closeAll()">✕</button></div>
+ <div class="ls">${S.cart.length?`<div style="font-size:13px;margin-top:6px">${s>=free?'🎉 '+L('Жеткізу тегін!','Доставка бесплатно!'):L(`Тегін жеткізуге дейін ${fmt(free-s)} қалды`,`До бесплатной доставки ${fmt(free-s)}`)}</div><div class="prog"><i style="width:${Math.min(100,s/free*100)}%"></i></div>`+S.cart.map((c,i)=>`<div class="ci"><img src="${U(cPh(c),200)}" alt=""><div><div class="n">${esc(cName(c))}</div><small>${c.custom?Object.entries(c.recipe).map(([f,n])=>N(fl(f))+' ×'+n).join(', '):(c.size!=='M'&&Object.keys(prod(c.pid).recipe).length?L('Өлшемі ','Размер ')+c.size:'')}${(c.addons||[]).length?' + '+c.addons.map(a=>N(prod(a)).split(' ').slice(0,2).join(' ')).join(', '):''}${c.card?' · ✉ '+L('ашықхат','открытка'):''}</small><div class="qty"><button onclick="cq(${i},-1)">−</button><span>${c.qty}</span><button onclick="cq(${i},1)">+</button></div></div><b>${fmt(lineTotal(c))}</b></div>`).join(''):`<div class="empty" style="margin-top:30px">🛍<br>${L('Себет бос','Корзина пуста')}<br><br><a class="btn sm" href="#/catalog" onclick="closeAll()">${L('Каталогқа өту','В каталог')}</a></div>`}</div>
+ ${S.cart.length?`<div class="ft"><div class="sum"><div class="row t" style="margin:0;border:0;padding-top:0"><span>${L('Жиыны','Итого')}</span><span>${fmt(s)}</span></div></div><a class="btn acc" style="width:100%;margin-top:12px;height:52px" href="#/checkout" onclick="closeAll()">${L('Рәсімдеу','Оформить заказ')} →</a></div>`:''}`;
+ $('#drawer').classList.add('on');$('#ov').classList.add('on')}
+function cq(i,d){S.cart[i].qty+=d;if(S.cart[i].qty<1)S.cart.splice(i,1);save();render();openCart()}
+function closeAll(){$$('.drawer,.modal,#ov').forEach(e=>e.classList.remove('on'))}
+
+/* checkout */
+let CO=null;
+function pCheckout(){
+ if(!S.cart.length)return `<div class="wrap"><div class="empty" style="margin:60px 0">🛍 ${L('Себет бос','Корзина пуста')}<br><br><a class="btn" href="#/catalog">${L('Каталогқа','В каталог')}</a></div></div>`;
+ const u=me();
+ if(!CO)CO={name:u&&u.role==='client'?u.name:'',phone:u&&u.role==='client'?u.phone:'',rname:'',rphone:'',anon:false,self:false,mode:'courier',district:0,address:'',date:today(),slot:'',pay:'kaspi',promo:'',promoOk:null,bonus:false,card:''};
+ const sub=cartSum(),pr=CO.promoOk?S.promos.find(x=>x.code===CO.promoOk):null,disc=pr?Math.round(sub*pr.pct/100):0;
+ const bonusAv=u&&u.role==='client'?(S.bonus[u.login]||0):0,bonusUse=CO.bonus?Math.min(bonusAv,Math.round((sub-disc)*0.3)):0;
+ const fee=CO.mode==='pickup'||sub>=30000?0:DISTRICTS[CO.district].fee;
+ const total=sub-disc-bonusUse+fee;CO.calc={sub,disc,bonusUse,fee,total};
+ const nowH=new Date().getHours();
+ const slotOk=s=>CO.date!==today()||parseInt(s)>=nowH+2;
+ const dates=[0,1,2,3,4,5,6].map(i=>addDays(today(),i));
+ const dn=d=>{const x=new Date(d);return i=>0};
+ return `<div class="wrap"><div class="crumbs"><a href="#/">${L('Басты бет','Главная')}</a> / ${L('Тапсырысты рәсімдеу','Оформление заказа')}</div>
+ <h2 class="serif" style="font-size:46px;font-weight:500;margin-top:10px">${L('Тапсырысты рәсімдеу','Оформление заказа')}</h2>
+ <div class="co"><div>
+ <div class="box"><h3><i>1</i>${L('Сіздің деректеріңіз','Ваши данные')}</h3><div class="g2"><div class="fld"><label>${L('Атыңыз','Ваше имя')}*</label><input id="c_name" value="${esc(CO.name)}" oninput="CO.name=this.value"></div><div class="fld"><label>${L('Телефон','Телефон')}* (WhatsApp)</label><input id="c_phone" value="${esc(CO.phone)}" placeholder="+7 7__ ___ __ __" oninput="CO.phone=phoneMask(this)"></div></div>
+ ${!u?`<p style="font-size:13px;color:var(--mut);margin-top:10px">${L('Бонус жинау үшін','Чтобы копить бонусы,')} <a style="color:var(--acc);font-weight:600" onclick="openLogin()">${L('кіріңіз','войдите')}</a></p>`:''}</div>
+ <div class="box"><h3><i>2</i>${L('Алушы','Получатель')}</h3><label style="display:flex;gap:8px;align-items:center;margin-top:10px;font-size:14px"><input type="checkbox" ${CO.self?'checked':''} onchange="CO.self=this.checked;render()"> ${L('Өзім аламын','Получу сам(а)')}</label>
+ ${CO.self?'':`<div class="g2"><div class="fld"><label>${L('Алушының аты','Имя получателя')}*</label><input id="c_rname" value="${esc(CO.rname)}" oninput="CO.rname=this.value"></div><div class="fld"><label>${L('Алушының телефоны','Телефон получателя')}*</label><input id="c_rphone" value="${esc(CO.rphone)}" placeholder="+7 7__ ___ __ __" oninput="CO.rphone=phoneMask(this)"></div></div>
+ <label style="display:flex;gap:8px;align-items:center;margin-top:12px;font-size:14px"><input type="checkbox" ${CO.anon?'checked':''} onchange="CO.anon=this.checked"> 🤫 ${L('Анонимді жеткізу (жіберушінің атын айтпау)','Анонимная доставка (не называть отправителя)')}</label>`}</div>
+ <div class="box"><h3><i>3</i>${L('Жеткізу','Доставка')}</h3><div class="radio"><button class="${CO.mode==='courier'?'on':''}" onclick="CO.mode='courier';render()">🚚 ${L('Курьер','Курьером')}<small>${L('90 минуттан бастап','от 90 минут')}</small></button><button class="${CO.mode==='pickup'?'on':''}" onclick="CO.mode='pickup';render()">🏪 ${L('Дүкеннен алып кету','Самовывоз')}<small>${L('Тұран 24, тегін','Туран 24, бесплатно')}</small></button></div>
+ ${CO.mode==='courier'?`<div class="g2"><div class="fld"><label>${L('Аудан','Район')}</label><select onchange="CO.district=+this.value;render()">${DISTRICTS.map((d,i)=>`<option value="${i}" ${CO.district===i?'selected':''}>${N(d)} — ${d.fee?fmt(d.fee):L('тегін','бесплатно')}</option>`).join('')}</select></div><div class="fld"><label>${L('Мекенжай','Адрес')}*</label><input id="c_addr" value="${esc(CO.address)}" placeholder="${L('Көше, үй, пәтер','Улица, дом, квартира')}" oninput="CO.address=this.value"></div></div>`:''}
+ <div class="fld"><label>${L('Күні','Дата')}</label><div class="slots" style="margin-top:0">${dates.map((d,i)=>`<button class="${CO.date===d?'on':''}" onclick="CO.date='${d}';CO.slot='';render()">${i===0?L('Бүгін','Сегодня'):i===1?L('Ертең','Завтра'):new Date(d).toLocaleDateString(S.lang==='ru'?'ru-RU':'kk-KZ',{day:'numeric',month:'short'})}</button>`).join('')}</div></div>
+ <div class="fld"><label>${L('Уақыт аралығы','Интервал')}*</label><div class="slots" style="margin-top:0">${CO.date===today()?`<button class="${CO.slot==='asap'?'on':''}" onclick="CO.slot='asap';render()">⚡ ${L('Мүмкіндігінше тез (90 мин)','Как можно скорее (90 мин)')}</button>`:''}${SLOTS.map(s=>`<button class="${CO.slot===s?'on':''}" ${slotOk(s)?'':'disabled'} onclick="CO.slot='${s}';render()">${s}</button>`).join('')}</div></div>
+ <div class="fld"><label>${L('Ашықхат мәтіні','Текст открытки')}</label><textarea oninput="CO.card=this.value" placeholder="${L('Жүрекжарды сөз…','Тёплые слова…')}">${esc(CO.card)}</textarea></div></div>
+ <div class="box"><h3><i>4</i>${L('Төлем','Оплата')}</h3><div class="radio">${[['kaspi','Kaspi QR',L('Ең танымал','Самый популярный')],['red','Kaspi Red',L('3 айға бөліп','Рассрочка 3 мес.')],['card',L('Банк картасы','Банковская карта'),'Visa · Mastercard'],['cash',L('Қолма-қол','Наличными'),L('Алған кезде','При получении')]].map(([k,t,s])=>`<button class="${CO.pay===k?'on':''}" onclick="CO.pay='${k}';render()">${t}<small>${s}</small></button>`).join('')}</div>
+ ${CO.pay==='kaspi'||CO.pay==='red'?`<div class="kaspi">${qr(84)}<div style="font-size:14px"><b>${L('Тапсырыс расталған соң Kaspi QR ашылады','После подтверждения откроется Kaspi QR')}</b><br><span style="color:var(--mut)">${L('Kaspi.kz қосымшасымен сканерлеңіз — төлем автоматты расталады.','Отсканируйте в приложении Kaspi.kz — оплата подтвердится автоматически.')}</span></div></div>`:''}
+ ${CO.pay==='card'?`<p style="font-size:13px;color:var(--mut);margin-top:12px">🔒 ${L('Карта деректері қауіпсіз төлем бетінде енгізіледі (3-D Secure). Біз карта нөмірін сақтамаймыз.','Данные карты вводятся на защищённой странице банка (3-D Secure). Мы не храним номер карты.')}</p>`:''}</div></div>
+ <aside class="sum"><div class="box"><h3>${L('Сіздің тапсырысыңыз','Ваш заказ')}</h3>${S.cart.map(c=>`<div class="ci" style="grid-template-columns:56px 1fr auto"><img src="${U(cPh(c),120)}" style="width:56px;height:62px" alt=""><div class="n">${esc(cName(c))}<small>× ${c.qty}</small></div><b style="font-size:14px">${fmt(lineTotal(c))}</b></div>`).join('')}
+ <div class="promo"><input id="pc" placeholder="${L('Промокод','Промокод')}" value="${esc(CO.promo)}" oninput="CO.promo=this.value"><button class="btn sm" onclick="applyPromo()">OK</button></div>
+ <div style="font-size:12.5px;color:var(--mut);margin:-6px 0 10px">${CO.promoOk?'✓ '+CO.promoOk+' — '+L('қолданылды','применён'):L('Байқап көріңіз: FLOWER10','Попробуйте: FLOWER10')}</div>
+ ${bonusAv?`<label style="display:flex;gap:8px;align-items:center;font-size:14px;margin-bottom:10px"><input type="checkbox" ${CO.bonus?'checked':''} onchange="CO.bonus=this.checked;render()"> ${L(`Бонуспен төлеу (бар: ${bonusAv})`,`Списать бонусы (доступно ${bonusAv})`)}</label>`:''}
+ <div class="row"><span>${L('Тауарлар','Товары')}</span><span>${fmt(sub)}</span></div>${disc?`<div class="row" style="color:var(--acc)"><span>${L('Промокод','Промокод')}</span><span>−${fmt(disc)}</span></div>`:''}${bonusUse?`<div class="row" style="color:var(--acc)"><span>${L('Бонус','Бонусы')}</span><span>−${fmt(bonusUse)}</span></div>`:''}
+ <div class="row"><span>${L('Жеткізу','Доставка')}</span><span>${fee?fmt(fee):L('тегін','бесплатно')}</span></div><div class="row t"><span>${L('Төлеуге','К оплате')}</span><span>${fmt(total)}</span></div>
+ <div style="font-size:12.5px;color:var(--sage);margin-top:6px">+${Math.round(total*0.05)} ${L('бонус жиналады (5 %)','бонусов начислится (5 %)')}</div>
+ <button class="btn acc" style="width:100%;height:54px;margin-top:16px" onclick="placeOrder()">${L('Тапсырысты растау','Подтвердить заказ')}</button><div class="err-m" id="coerr"></div>
+ <p style="font-size:12px;color:var(--mut)">${L('Растау арқылы сіз дербес деректерді өңдеуге келісім бересіз (ҚР № 94-V Заңы).','Подтверждая, вы соглашаетесь на обработку персональных данных (Закон РК № 94-V).')}</p></div></aside></div></div>`;
+}
+function phoneMask(el){let d=el.value.replace(/\D/g,'');if(d[0]==='8')d='7'+d.slice(1);if(d&&d[0]!=='7')d='7'+d;d=d.slice(0,11);
+ let s=d?'+7':'';if(d.length>1)s+=' '+d.slice(1,4);if(d.length>4)s+=' '+d.slice(4,7);if(d.length>7)s+=' '+d.slice(7,9);if(d.length>9)s+=' '+d.slice(9,11);el.value=s;return s}
+function applyPromo(){const c=(CO.promo||'').trim().toUpperCase();const p=S.promos.find(x=>x.code===c&&x.active);
+ if(p){CO.promoOk=c;toast('🎉 '+L(`${p.pct} % жеңілдік қолданылды`,`Скидка ${p.pct} % применена`))}else{CO.promoOk=null;toast('✖ '+L('Промокод жарамсыз','Промокод недействителен'))}render()}
+function placeOrder(){
+ const e=[];const ph=s=>/^\+7 \d{3} \d{3} \d{2} \d{2}$/.test(s||'');
+ if(!CO.name.trim())e.push('c_name');if(!ph(CO.phone))e.push('c_phone');
+ if(!CO.self){if(!CO.rname.trim())e.push('c_rname');if(!ph(CO.rphone))e.push('c_rphone')}
+ if(CO.mode==='courier'&&CO.address.trim().length<5)e.push('c_addr');
+ $$('.fld').forEach(f=>f.classList.remove('err'));e.forEach(id=>{const x=$('#'+id);x&&x.closest('.fld').classList.add('err')});
+ if(e.length||!CO.slot){$('#coerr').textContent=!CO.slot&&!e.length?L('Уақыт аралығын таңдаңыз','Выберите интервал доставки'):L('Белгіленген өрістерді толтырыңыз','Заполните отмеченные поля');const x=$('#'+e[0]);x&&x.scrollIntoView({behavior:'smooth',block:'center'});return}
+ const u=me(),c=CO.calc,id='FS-'+(S.nextId++);
+ const o={id,created:new Date().toISOString(),date:CO.date,slot:CO.slot==='asap'?L('90 минут ішінде','в течение 90 мин'):CO.slot,
+  items:S.cart.map(x=>({...x})),customer:{name:CO.name,phone:CO.phone,login:u&&u.role==='client'?u.login:null},recipient:CO.self?{name:CO.name,phone:CO.phone}:{name:CO.rname,phone:CO.rphone,anon:CO.anon},
+  mode:CO.mode,district:CO.district,address:CO.mode==='pickup'?L('Алып кету: Тұран 24','Самовывоз: Туран 24'):CO.address,card:CO.card||S.cart.map(x=>x.card).filter(Boolean).join(' / '),
+  pay:CO.pay,paid:CO.pay!=='cash',promo:CO.promoOk,discount:c.disc,bonus:c.bonusUse,fee:c.fee,total:c.total,status:'new',florist:null,courier:null,photo:null,log:[{t:ts(),who:'web',s:'new'}]};
+ if(o.paid)o.log.push({t:ts(),who:CO.pay==='card'?'Payment gateway':'Kaspi',s:'paid'});
+ if(CO.promoOk){const p=S.promos.find(x=>x.code===CO.promoOk);p.used++}
+ if(u&&u.role==='client'){S.bonus[u.login]=(S.bonus[u.login]||0)-c.bonusUse+Math.round(c.total*0.05)}
+ S.orders.unshift(o);S.cart=[];CO=null;save();go('#/track/'+id);
+ setTimeout(()=>toast('💬 WhatsApp: '+L(`${id} тапсырысы қабылданды`,`Заказ ${id} принят`)),600)}
+function qr(s){let r='';const n=21,c=s/n;let seed=7;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
+ for(let y=0;y<n;y++)for(let x=0;x<n;x++){const f=(a,b)=>x>=a&&x<a+7&&y>=b&&y<b+7;let on;
+  if(f(0,0)||f(14,0)||f(0,14)){const lx=x%14===x?x:x-14,ly=y%14===y?y:y-14;const X=x<7?x:x-14,Y=y<7?y:y-14;on=(X===0||X===6||Y===0||Y===6)||(X>=2&&X<=4&&Y>=2&&Y<=4)}else on=rnd()>.52;
+  if(on)r+=`<rect x="${x*c}" y="${y*c}" width="${c+.3}" height="${c+.3}"/>`}
+ return `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}" fill="#111">${r}</svg>`}
+
+/* tracking */
+function pTrack(id){
+ if(!id)return `<div class="wrap trk"><h2 class="serif" style="font-size:46px;font-weight:500">${L('Тапсырысты қадағалау','Отследить заказ')}</h2><p style="color:var(--mut);margin:8px 0 20px">${L('Тапсырыс нөмірін енгізіңіз (мысалы, FS-10237)','Введите номер заказа (например, FS-10237)')}</p>
+ <div class="promo" style="max-width:460px"><input id="tid" placeholder="FS-10237" onkeydown="if(event.key==='Enter')go('#/track/'+this.value.trim().toUpperCase())"><button class="btn" onclick="go('#/track/'+$('#tid').value.trim().toUpperCase())">${L('Табу','Найти')}</button></div>
+ <p style="font-size:13px;color:var(--mut)">${L('Демо нөмірлер:','Демо-номера:')} ${S.orders.slice(0,4).map(o=>`<a style="color:var(--acc);font-weight:600" href="#/track/${o.id}">${o.id}</a>`).join(', ')}</p></div>`;
+ const o=S.orders.find(x=>x.id===id);
+ if(!o)return `<div class="wrap trk"><div class="empty">🔎 ${L('Тапсырыс табылмады','Заказ не найден')}: ${esc(id)}<br><br><a class="btn sm" href="#/track">${L('Қайта іздеу','Искать снова')}</a></div></div>`;
+ const flow=o.mode==='pickup'?['new','prep','ready','done']:['new','prep','ready','way','done'];
+ const ci=o.status==='cancel'?-1:flow.indexOf(o.status);
+ const desc={new:L('Тапсырыс қабылданды, флорист жақын арада бастайды','Заказ принят, флорист скоро начнёт'),prep:L('Флорист букетті жинап жатыр','Флорист собирает букет'),ready:L('Букет дайын, фото WhatsApp-қа жіберілді','Букет готов, фото отправлено в WhatsApp'),way:L('Курьер жолда','Курьер в пути'),done:o.mode==='pickup'?L('Тапсырыс берілді','Заказ выдан'):L('Букет алушыға тапсырылды','Букет вручён получателю')};
+ const when=s=>{const l=[...o.log].reverse().find(x=>x.s===s);return l?l.t:''};
+ return `<div class="wrap trk"><div class="crumbs"><a href="#/">${L('Басты бет','Главная')}</a> / ${L('Тапсырыс','Заказ')} ${o.id}</div>
+ <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-top:10px"><div><h2 class="serif" style="font-size:46px;font-weight:500;line-height:1">${L('Тапсырыс','Заказ')} ${o.id}</h2><p style="color:var(--mut);margin-top:8px">${o.date} · ${o.slot} · ${esc(o.address)}</p></div>${stB(o.status)}</div>
+ ${o.status==='new'&&(Date.now()-new Date(o.created))<86400000?`<div class="notif" style="margin-top:18px"><i>💬</i><div><b>WhatsApp · FlowerShop</b><br>${L(`Сәлеметсіз бе, ${esc(o.customer.name)}! ${o.id} тапсырысы қабылданды. Жиналған букеттің фотосын жібереміз.`,`Здравствуйте, ${esc(o.customer.name)}! Заказ ${o.id} принят. Пришлём фото собранного букета.`)}</div></div>`:''}
+ ${o.photo?`<div class="notif"><i>📸</i><div><b>${L('Букеттің фотосы','Фото вашего букета')}</b><br>${L('Флорист жібермес бұрын түсірді','Сделано флористом перед отправкой')}<div class="photo-ok" style="margin-top:10px"><img src="${U(PH[o.photo],600)}" alt=""><span>${o.id} · ${when('ready')}</span></div></div></div>`:''}
+ <div class="g2c" style="margin-top:20px"><div class="card"><h3>${L('Мәртебесі','Статус заказа')}</h3><div class="tl">${o.status==='cancel'?`<div class="st cur"><span class="dot">✖</span><div><b>${stName('cancel')}</b><small>${when('cancel')}</small></div></div>`:flow.map((s,i)=>`<div class="st ${i<ci||o.status==='done'?'done':''} ${i===ci&&o.status!=='done'?'cur':''}"><span class="dot">${i<ci||o.status==='done'?'✓':ST[s][3]}</span><div><b>${stName(s)}</b><small>${desc[s]}${when(s)?' · '+when(s):''}</small></div></div>`).join('')}</div>
+ ${o.status==='way'?`<div class="map" style="height:220px;margin-top:6px"><iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=71.39%2C51.10%2C71.47%2C51.15&layer=mapnik&marker=51.122%2C71.44"></iframe></div><p style="font-size:13px;color:var(--mut);margin-top:8px">🚗 ${L('Курьер: Ерлан, ~ 24 минут','Курьер: Ерлан, ~ 24 минуты')}</p>`:''}</div>
+ <div class="card"><h3>${L('Құрамы','Состав заказа')}</h3>${o.items.map(c=>`<div class="ci" style="grid-template-columns:56px 1fr auto"><img src="${U(c.custom?PH[c.ph]:PH[prod(c.pid).ph[0]],120)}" style="width:56px;height:62px" alt=""><div class="n">${esc(c.custom?N(c):N(prod(c.pid)))}<small>× ${c.qty}</small></div><b style="font-size:14px">${fmt(lineTotal(c))}</b></div>`).join('')}
+ <div class="sum" style="position:static;margin-top:10px">${o.discount?`<div class="row"><span>${L('Жеңілдік','Скидка')}</span><span>−${fmt(o.discount)}</span></div>`:''}<div class="row"><span>${L('Жеткізу','Доставка')}</span><span>${o.fee?fmt(o.fee):L('тегін','бесплатно')}</span></div><div class="row t"><span>${L('Барлығы','Итого')}</span><span>${fmt(o.total)}</span></div>
+ <div class="row"><span>${L('Төлем','Оплата')}</span><span>${{kaspi:'Kaspi QR',red:'Kaspi Red',card:L('Карта','Карта'),cash:L('Қолма-қол','Наличные')}[o.pay]} · ${o.paid?'✅ '+L('төленді','оплачено'):'⏳ '+L('алғанда','при получении')}</span></div></div>
+ ${o.card?`<div class="recipe" style="margin-top:12px">✉ «${esc(o.card)}»</div>`:''}
+ ${o.status==='new'?`<button class="btn ghost sm" style="margin-top:14px;width:100%" onclick="cancelOrder('${o.id}')">${L('Тапсырыстан бас тарту','Отменить заказ')}</button>`:''}</div></div>
+ <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn acc" href="#/catalog">${L('Тағы тапсырыс беру','Заказать ещё')}</a><a class="btn wa" target="_blank" href="https://wa.me/77015550000?text=${encodeURIComponent(o.id)}">${L('WhatsApp-қа жазу','Написать в WhatsApp')}</a></div></div>`;
+}
+function cancelOrder(id){const o=S.orders.find(x=>x.id===id);o.status='cancel';o.log.push({t:ts(),who:'client',s:'cancel'});if(o.paid)o.log.push({t:ts(),who:'Kaspi',s:'refund'});save();render();toast(L('Тапсырыс жойылды, ақша қайтарылады','Заказ отменён, деньги вернутся'))}
+
+/* profile */
+function pProfile(){
+ const u=me();if(!u||u.role!=='client'){setTimeout(openLogin,50);return `<div class="wrap"><div class="empty" style="margin:60px 0">${L('Жеке кабинетке кіріңіз','Войдите в личный кабинет')}<br><br><button class="btn" onclick="openLogin()">${L('Кіру','Войти')}</button></div></div>`}
+ const my=S.orders.filter(o=>o.customer.login===u.login);
+ return `<div class="wrap prof"><div><div class="me"><div class="av">${u.name[0]}</div><h3 style="font-size:20px">${esc(u.name)}</h3><p style="color:var(--mut);font-size:14px">${u.phone}</p>
+ <div class="bonus"><span style="font-size:13px;opacity:.8">${L('Бонус шоты','Бонусный счёт')}</span><b>${S.bonus[u.login]||0}</b><span style="font-size:12px;opacity:.8">1 ${L('бонус','бонус')} = 1 ₸ · ${L('әр тапсырыстан 5 %','5 % с каждого заказа')}</span></div>
+ <button class="btn ghost sm" style="width:100%;margin-top:14px" onclick="logout()">${L('Шығу','Выйти')}</button></div></div>
+ <div><div class="card"><h3>${L('Менің тапсырыстарым','Мои заказы')} <span style="color:var(--mut);font-size:14px">${my.length}</span></h3><div class="tw"><table class="t"><tr><th>№</th><th>${L('Күні','Дата')}</th><th>${L('Құрамы','Состав')}</th><th>${L('Сома','Сумма')}</th><th>${L('Мәртебе','Статус')}</th><th></th></tr>${my.map(o=>`<tr><td><b>${o.id}</b></td><td>${o.date}</td><td>${esc(o.items.map(c=>c.custom?N(c):N(prod(c.pid))).join(', '))}</td><td>${fmt(o.total)}</td><td>${stB(o.status)}</td><td><a class="btn sm ghost" href="#/track/${o.id}">${L('Қадағалау','Отследить')}</a> <button class="btn sm" onclick="repeat('${o.id}')">↻</button></td></tr>`).join('')}</table></div></div>
+ <div class="card"><h3>🗓 ${L('Маңызды күндер (еске салу)','Важные даты (напоминания)')}</h3><p style="color:var(--mut);font-size:14px;margin:-6px 0 10px">${L('3 күн бұрын WhatsApp-қа еске салу және 10 % жеке жеңілдік келеді','За 3 дня придёт напоминание в WhatsApp и персональная скидка 10 %')}</p>
+ <div class="dates">${S.dates.map((d,i)=>`<div><span>🎉 ${esc(d.n)}</span><span><b>${d.d.split('-').reverse().join('.')}</b> <button class="x" style="width:30px;height:30px;display:inline-grid;margin-left:8px" onclick="S.dates.splice(${i},1);save();render()">✕</button></span></div>`).join('')}</div>
+ <div class="g2" style="align-items:end"><div class="fld"><label>${L('Оқиға','Событие')}</label><input id="dn" placeholder="${L('Әпкемнің туған күні','ДР сестры')}"></div><div class="fld"><label>${L('Күні','Дата')}</label><input id="dd" type="date"></div></div><button class="btn sm" style="margin-top:12px" onclick="addDate()">+ ${L('Қосу','Добавить')}</button></div></div></div>`;
+}
+function addDate(){const n=$('#dn').value.trim(),d=$('#dd').value;if(!n||!d)return toast(L('Атауы мен күнін енгізіңіз','Введите название и дату'));S.dates.push({n,d:d.slice(5)});save();render();toast('🗓 '+L('Еске салу қосылды','Напоминание добавлено'))}
+function repeat(id){const o=S.orders.find(x=>x.id===id);o.items.forEach(c=>S.cart.push({...c,key:'r'+Math.random()}));save();render();openCart()}
+
+/* auth */
+function openLogin(){closeAll();$('#modal').innerHTML=`<div class="in"><div style="display:flex;justify-content:space-between;align-items:flex-start"><h3>${L('Кіру','Вход')}</h3><button class="x" onclick="closeAll()">✕</button></div>
+ <p style="color:var(--mut);font-size:14px;margin-top:6px">${L('Клиенттер мен қызметкерлерге ортақ кіру','Единый вход для клиентов и сотрудников')}</p>
+ <div class="fld"><label>${L('Логин','Логин')}</label><input id="lg" autocomplete="username" onkeydown="if(event.key==='Enter')$('#pw').focus()"></div>
+ <div class="fld"><label>${L('Құпиясөз','Пароль')}</label><input id="pw" type="password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+ <div class="err-m" id="lerr"></div><button class="btn acc" style="width:100%;height:50px" onclick="doLogin()">${L('Кіру','Войти')}</button>
+ <div class="demo"><b>🔑 ${L('Демо-аккаунттар (басып толтыру)','Демо-аккаунты (нажмите, чтобы подставить)')}</b>${USERS.map(u=>`<button onclick="$('#lg').value='${u.login}';$('#pw').value='${u.pass}'"><span>${{admin:'👑 '+L('Әкімші','Администратор'),client:'🛍 '+L('Клиент','Клиент'),florist:'💐 '+L('Флорист','Флорист'),courier:'🚗 '+L('Курьер','Курьер')}[u.role]}</span><code>${u.login} / ${u.pass}</code></button>`).join('')}</div></div>`;
+ $('#modal').classList.add('on');$('#ov').classList.add('on');setTimeout(()=>$('#lg').focus(),100)}
+function doLogin(){const l=$('#lg').value.trim(),p=$('#pw').value;const u=USERS.find(x=>x.login.toLowerCase()===l.toLowerCase()&&x.pass===p);
+ if(!u){$('#lerr').textContent=L('Логин немесе құпиясөз қате','Неверный логин или пароль');$('#pw').closest('.fld').classList.add('err');return}
+ S.session=u.login;save();closeAll();toast('👋 '+L('Қош келдіңіз, ','Добро пожаловать, ')+u.name.split(' ')[0]);
+ if(u.role==='client'){if(!location.hash.includes('checkout'))go('#/profile');else render()}else go('#/staff')}
+function logout(){S.session=null;save();go('#/')}
+function setLang(l){S.lang=l;save();render()}
+
+/* misc */
+function togFav(id,el){S.favs=S.favs.includes(id)?S.favs.filter(x=>x!==id):[...S.favs,id];save();el.classList.toggle('on');
+ const b=$('.icons a.ib');b.innerHTML=ICON.heart+(S.favs.length?`<b>${S.favs.length}</b>`:'')}
+function sug(v){const box=$('.sug');v=v.trim().toLowerCase();if(v.length<2){box.style.display='none';return}
+ const r=S.products.filter(p=>p.active&&(p.kk+' '+p.ru).toLowerCase().includes(v)).slice(0,6);
+ box.innerHTML=r.length?r.map(p=>`<a href="#/p/${p.id}"><img src="${U(PH[p.ph[0]],100)}" alt=""><span>${esc(N(p))}<br><b>${fmt(p.price)}</b></span></a>`).join(''):`<a>${L('Табылмады','Ничего не найдено')}</a>`;box.style.display='block'}
+let tt;function toast(m){const t=$('#toast');t.innerHTML=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
+function go(h){if(location.hash===h)render();else location.hash=h}
+
+/* router */
+function render(){
+ const h=location.hash.slice(1)||'/';const [path,qstr]=h.split('?');const qs=new URLSearchParams(qstr||'');const seg=path.split('/').filter(Boolean);
+ document.documentElement.lang=S.lang==='ru'?'ru':'kk';
+ if(seg[0]==='staff'){$('#app').innerHTML=staff(seg[1]||'',qs);window.scrollTo(0,0);return}
+ let inner;switch(seg[0]){case 'catalog':inner=pCatalog(qs);break;case 'p':inner=pProduct(seg[1]);break;case 'builder':inner=pBuilder();break;case 'checkout':inner=pCheckout();break;case 'track':inner=pTrack(seg[1]);break;case 'profile':inner=pProfile();break;default:inner=pHome()}
+ const y=window.scrollY,same=render.last===h;render.last=h;
+ $('#app').innerHTML=shell(inner);
+ document.title=(seg[0]==='p'&&prod(seg[1])?N(prod(seg[1]))+' — ':'')+'FlowerShop · '+L('Астанада гүл жеткізу','Доставка цветов в Астане');
+ window.scrollTo(0,same?y:0);
+ $$('nav.mn a').forEach(a=>a.classList.toggle('on',location.hash===a.getAttribute('href')));
+}
+window.addEventListener('hashchange',()=>{closeAll();render()});
+window.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+load();
+document.addEventListener('DOMContentLoaded',render);
+
+/* staff: admin / florist / courier */
+const ROLE_NAME={admin:['Әкімші','Администратор'],florist:['Флорист','Флорист'],courier:['Курьер','Курьер'],client:['Клиент','Клиент']};
+const itemsTxt=o=>o.items.map(c=>(c.custom?N(c):N(prod(c.pid)))+(c.qty>1?' ×'+c.qty:'')).join(', ');
+const oPh=o=>{const c=o.items[0];return c.custom?PH[c.ph]:PH[prod(c.pid).ph[0]]};
+const stockOf=f=>S.stock.filter(b=>b.fl===f).reduce((a,b)=>a+b.qty,0);
+const daysLeft=d=>Math.round((new Date(d)-new Date(today()))/86400000);
+function needs(o){const r={};o.items.forEach(c=>{const rec=c.custom?c.recipe:prod(c.pid).recipe;const k=c.custom?1:SIZES.find(s=>s.id===(c.size||'M')).k;
+ Object.entries(rec||{}).forEach(([f,n])=>r[f]=(r[f]||0)+Math.max(1,Math.round(n*k))*c.qty)});return r}
+function setStatus(id,s,who){const o=S.orders.find(x=>x.id===id);o.status=s;o.log.push({t:ts(),who:who||me().name,s});
+ if(s==='done'){o.delivered=ts();if(!o.paid){o.paid=true;o.log.push({t:ts(),who:me().name,s:'paid'})}}
+ save();render();toast(`${o.id} → ${stName(s)}`+(['ready','way','done'].includes(s)?' · 💬 WhatsApp '+L('клиентке жіберілді','отправлен клиенту'):''))}
+function staff(sec,qs){
+ const u=me();
+ if(!u||u.role==='client'){setTimeout(openLogin,50);return shell(`<div class="wrap"><div class="empty" style="margin:60px 0">🔐 ${L('Қызметкерлер панеліне кіріңіз','Войдите в панель сотрудников')}<br><br><button class="btn" onclick="openLogin()">${L('Кіру','Войти')}</button></div></div>`)}
+ const menus={admin:[['',`📊 ${L('Шолу','Обзор')}`],['orders',`🧾 ${L('Тапсырыстар','Заказы')}`,S.orders.filter(o=>o.status==='new').length],['products',`💐 ${L('Тауарлар','Товары')}`],['stock',`📦 ${L('Қойма','Склад')}`,S.stock.filter(b=>b.qty<b.min||daysLeft(b.exp)<=2).length],['clients',`👥 CRM`],['promo',`🏷 ${L('Промокодтар','Промокоды')}`],['users',`🔑 ${L('Рөлдер','Роли')}`],['log',`📜 ${L('Журнал','Журнал')}`]],
+  florist:[['',`💐 ${L('Жинау кезегі','Очередь сборки')}`,S.orders.filter(o=>['new','prep'].includes(o.status)).length],['stock',`📦 ${L('Қойма','Склад')}`]],
+  courier:[['',`🚗 ${L('Жеткізулер','Доставки')}`,S.orders.filter(o=>o.mode==='courier'&&['ready','way'].includes(o.status)).length],['done',`✅ ${L('Орындалғандар','Выполненные')}`]]}[u.role];
+ const body={admin:{'':aDash,orders:aOrders,products:aProducts,stock:aStock,clients:aClients,promo:aPromo,users:aUsers,log:aLog},florist:{'':fQueue,stock:aStock},courier:{'':cList,done:cDone}}[u.role][sec]||(()=>'<div class="empty">404</div>');
+ return `<div class="panel"><aside class="side"><a class="logo" href="#/" style="padding:0"><i>✿</i>FlowerShop</a>${menus.map(([k,t,b])=>`<a href="#/staff/${k}" class="${sec===k?'on':''}">${t}${b?`<b>${b}</b>`:''}</a>`).join('')}
+ <a href="#/" style="margin-top:10px">🌐 ${L('Сайтқа өту','На сайт')}</a>
+ <div class="me"><b>${esc(u.name)}</b>${L(...ROLE_NAME[u.role])} · ${u.login}<div class="lang" style="margin:10px 0;width:max-content"><button class="${S.lang==='kk'?'on':''}" onclick="setLang('kk')">ҚАЗ</button><button class="${S.lang==='ru'?'on':''}" onclick="setLang('ru')">РУС</button></div><button class="btn sm light" onclick="logout()">${L('Шығу','Выйти')}</button></div></aside>
+ <section class="main">${body(qs)}</section></div>`;
+}
+/* ----- admin ----- */
+function aDash(){
+ const t=today(),todayO=S.orders.filter(o=>o.date===t&&o.status!=='cancel'),rev=S.orders.filter(o=>o.status!=='cancel').reduce((a,o)=>a+o.total,0);
+ const tr=todayO.reduce((a,o)=>a+o.total,0);const days=[...Array(7)].map((_,i)=>addDays(t,i-6));
+ const rv=days.map((d,i)=>i<6?S.revenue[i]:tr);const mx=Math.max(...rv,1);
+ const top={};S.orders.forEach(o=>o.items.forEach(c=>{if(!c.custom)top[c.pid]=(top[c.pid]||0)+c.qty}));
+ const tops=Object.entries(top).sort((a,b)=>b[1]-a[1]).slice(0,5);
+ const warns=S.stock.filter(b=>b.qty<b.min||daysLeft(b.exp)<=2);
+ const avg=Math.round(rev/Math.max(1,S.orders.filter(o=>o.status!=='cancel').length));
+ return `<h1>${L('Сәлем, ','Привет, ')}${esc(me().name.split(' ')[0])} 👋</h1><p class="sub">${new Date().toLocaleDateString(S.lang==='ru'?'ru-RU':'kk-KZ',{weekday:'long',day:'numeric',month:'long'})}</p>
+ <div class="kpi"><div><span>${L('Бүгінгі түсім','Выручка сегодня')}</span><b>${fmt(tr)}</b><small class="up">▲ ${todayO.length} ${L('тапсырыс','заказов')}</small></div><div><span>${L('7 күндік түсім','Выручка за 7 дней')}</span><b>${fmt(rv.reduce((a,b)=>a+b,0))}</b><small class="up">▲ 12,4 %</small></div><div><span>${L('Орташа чек','Средний чек')}</span><b>${fmt(avg)}</b><small class="up">▲ 3,1 %</small></div><div><span>${L('Жаңа тапсырыстар','Новые заказы')}</span><b>${S.orders.filter(o=>o.status==='new').length}</b><small class="${S.orders.some(o=>o.status==='new')?'dn':'up'}">${L('өңдеуді күтуде','ждут обработки')}</small></div></div>
+ <div class="g2c"><div class="card"><h3>${L('Соңғы 7 күндегі түсім','Выручка за 7 дней')}</h3><div class="bars">${rv.map((v,i)=>`<div><span style="color:var(--ink);font-weight:600">${Math.round(v/1000)}k</span><i style="height:${Math.max(4,v/mx*150)}px"></i>${new Date(days[i]).toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit'})}</div>`).join('')}</div></div>
+ <div class="card"><h3>⚠ ${L('Қойма ескертулері','Предупреждения склада')}</h3>${warns.length?warns.map(b=>`<div class="warn ${daysLeft(b.exp)<=1?'r':''}">${daysLeft(b.exp)<=2?'⏳':'📉'} <span><b>${N(fl(b.fl))}</b> — ${daysLeft(b.exp)<=2?L(`мерзімі ${daysLeft(b.exp)} күнде бітеді`,`срок истекает через ${daysLeft(b.exp)} дн.`):''} ${b.qty<b.min?L(`қалдық ${b.qty} (min ${b.min})`,`остаток ${b.qty} (мин. ${b.min})`):''}</span></div>`).join(''):`<p style="color:var(--mut)">${L('Бәрі тәртіпте','Всё в порядке')}</p>`}<a class="btn sm ghost" href="#/staff/stock" style="margin-top:8px">${L('Қоймаға өту','Перейти на склад')}</a></div></div>
+ <div class="g2c"><div class="card"><h3>${L('Соңғы тапсырыстар','Последние заказы')}<a class="btn sm ghost" href="#/staff/orders">${L('Барлығы','Все')}</a></h3>${ordersTable(S.orders.slice(0,6),false)}</div>
+ <div class="card"><h3>🏆 ${L('Танымал тауарлар','Топ товаров')}</h3>${tops.map(([id,n],i)=>{const p=prod(id);return `<div style="display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)"><b style="width:18px">${i+1}</b><img src="${U(PH[p.ph[0]],100)}" style="width:42px;height:42px;border-radius:10px;object-fit:cover"><span style="flex:1;font-size:14px">${esc(N(p))}</span><b>${n}</b></div>`}).join('')}</div></div>`}
+function ordersTable(list,full){
+ return `<div class="tw"><table class="t"><tr><th>№</th><th></th><th>${L('Құрамы','Состав')}</th><th>${L('Клиент','Клиент')}</th><th>${L('Жеткізу','Доставка')}</th><th>${L('Сома','Сумма')}</th><th>${L('Мәртебе','Статус')}</th>${full?`<th>${L('Курьер','Курьер')}</th>`:''}</tr>
+ ${list.map(o=>`<tr><td><b><a href="#/track/${o.id}" style="color:var(--acc)">${o.id}</a></b><br><small style="color:var(--mut)">${o.date}</small></td><td><img src="${U(oPh(o),100)}" alt=""></td><td style="max-width:220px">${esc(itemsTxt(o))}</td><td>${esc(o.customer.name)}<br><small style="color:var(--mut)">${o.customer.phone}</small></td><td>${o.mode==='pickup'?'🏪 '+L('Алып кету','Самовывоз'):'🚚 '+esc(o.address)}<br><small style="color:var(--mut)">${o.slot}</small></td><td><b>${fmt(o.total)}</b><br><small>${o.paid?'✅ '+L('төленді','оплачен'):'⏳ '+L('төленбеген','не оплачен')}</small></td>
+ <td>${full?`<select class="mini" onchange="setStatus('${o.id}',this.value)">${Object.keys(ST).map(s=>`<option value="${s}" ${o.status===s?'selected':''}>${stName(s)}</option>`).join('')}</select>`:stB(o.status)}</td>
+ ${full?`<td>${o.mode==='courier'?`<select class="mini" onchange="assign('${o.id}',this.value)"><option value="">—</option>${USERS.filter(x=>x.role==='courier').map(c=>`<option value="${c.login}" ${o.courier===c.login?'selected':''}>${c.name.split(' ')[0]}</option>`).join('')}<option value="yandex" ${o.courier==='yandex'?'selected':''}>Яндекс Доставка</option></select>`:'—'}</td>`:''}</tr>`).join('')}</table></div>`}
+function assign(id,c){const o=S.orders.find(x=>x.id===id);o.courier=c||null;o.log.push({t:ts(),who:me().name,s:'courier:'+(c||'—')});save();toast(`${id}: ${L('курьер тағайындалды','курьер назначен')}`)}
+function aOrders(qs){const f=qs.get('s')||'all';const list=S.orders.filter(o=>f==='all'||o.status===f);
+ return `<h1>${L('Тапсырыстар','Заказы')}</h1><p class="sub">${L('Мәртебені өзгерту, курьер тағайындау, төлемді бақылау','Смена статуса, назначение курьера, контроль оплаты')}</p>
+ <div class="occs" style="margin-bottom:16px"><a class="chip ${f==='all'?'on':''}" href="#/staff/orders">${L('Барлығы','Все')} · ${S.orders.length}</a>${Object.keys(ST).map(s=>`<a class="chip ${f===s?'on':''}" href="#/staff/orders?s=${s}">${stName(s)} · ${S.orders.filter(o=>o.status===s).length}</a>`).join('')}</div>
+ <div class="card">${list.length?ordersTable(list,true):`<div class="empty">${L('Тапсырыс жоқ','Заказов нет')}</div>`}</div>`}
+let EDIT=null;
+function aProducts(){
+ return `<h1>${L('Тауарлар','Товары')}</h1><p class="sub">${L('Каталог, баға және көрінуін басқару','Управление каталогом, ценами и видимостью')}</p>
+ ${EDIT?pForm():`<button class="btn acc" onclick="EDIT='new';render()" style="margin-bottom:16px">+ ${L('Жаңа тауар','Новый товар')}</button>`}
+ <div class="card"><div class="tw"><table class="t"><tr><th></th><th>${L('Атауы','Название')}</th><th>${L('Санат','Категория')}</th><th>${L('Бағасы','Цена')}</th><th>${L('Рейтинг','Рейтинг')}</th><th>${L('Сайтта','На сайте')}</th><th></th></tr>
+ ${S.products.map(p=>`<tr style="${p.active?'':'opacity:.45'}"><td><img src="${U(PH[p.ph[0]],100)}" alt=""></td><td><b>${esc(N(p))}</b><br><small style="color:var(--mut)">${p.id.toUpperCase()}${Object.keys(p.recipe).length?' · '+Object.entries(p.recipe).map(([f,n])=>N(fl(f))+' '+n).join(', '):''}</small></td><td>${N(CATS.find(c=>c.id===p.cat))}</td><td><input class="mini" style="width:96px" type="number" value="${p.price}" onchange="prod('${p.id}').price=+this.value;save();toast('💾 '+L('Баға сақталды','Цена сохранена'))"></td><td>★ ${p.rating}</td><td><input type="checkbox" ${p.active?'checked':''} style="accent-color:var(--acc);width:18px;height:18px" onchange="prod('${p.id}').active=this.checked;save();render()"></td><td><button class="btn sm ghost" onclick="EDIT='${p.id}';render();scrollTo(0,0)">✎</button></td></tr>`).join('')}</table></div></div>`}
+function pForm(){const p=EDIT==='new'?{id:'',cat:'roses',kk:'',ru:'',price:15000,ph:['r4'],tag:''}:prod(EDIT);
+ return `<div class="card"><h3>${EDIT==='new'?L('Жаңа тауар','Новый товар'):L('Өңдеу: ','Редактирование: ')+esc(N(p))}</h3><div class="g2"><div class="fld"><label>${L('Атауы (қаз)','Название (каз)')}</label><input id="e_kk" value="${esc(p.kk)}"></div><div class="fld"><label>${L('Атауы (орыс)','Название (рус)')}</label><input id="e_ru" value="${esc(p.ru)}"></div>
+ <div class="fld"><label>${L('Санат','Категория')}</label><select id="e_cat">${CATS.map(c=>`<option value="${c.id}" ${p.cat===c.id?'selected':''}>${N(c)}</option>`).join('')}</select></div><div class="fld"><label>${L('Бағасы, ₸','Цена, ₸')}</label><input id="e_pr" type="number" value="${p.price}"></div>
+ <div class="fld"><label>${L('Фото','Фото')}</label><select id="e_ph">${Object.keys(PH).map(k=>`<option ${p.ph[0]===k?'selected':''}>${k}</option>`).join('')}</select></div><div class="fld"><label>${L('Белгі','Метка')}</label><select id="e_tag"><option value="">—</option><option value="hit" ${p.tag==='hit'?'selected':''}>Хит</option><option value="new" ${p.tag==='new'?'selected':''}>${L('Жаңа','Новинка')}</option></select></div></div>
+ <div style="display:flex;gap:10px;margin-top:16px"><button class="btn acc" onclick="saveP()">💾 ${L('Сақтау','Сохранить')}</button><button class="btn ghost" onclick="EDIT=null;render()">${L('Болдырмау','Отмена')}</button></div></div>`}
+function saveP(){const v=id=>$('#'+id).value;if(!v('e_kk').trim()||!v('e_ru').trim()||+v('e_pr')<=0)return toast('✖ '+L('Атауы мен бағасын толтырыңыз','Заполните название и цену'));
+ if(EDIT==='new'){S.products.unshift({id:'p'+(S.products.length+1+Math.floor(Math.random()*900)),cat:v('e_cat'),kk:v('e_kk'),ru:v('e_ru'),price:+v('e_pr'),old:null,ph:[v('e_ph'),v('e_ph')],occ:['bday'],color:'mix',recipe:{},rating:5,rev:0,tag:v('e_tag'),active:true})}
+ else Object.assign(prod(EDIT),{kk:v('e_kk'),ru:v('e_ru'),cat:v('e_cat'),price:+v('e_pr'),tag:v('e_tag'),ph:[v('e_ph'),prod(EDIT).ph[1]||v('e_ph')]});
+ EDIT=null;save();render();toast('💾 '+L('Тауар сақталды','Товар сохранён'))}
+function aStock(){const adm=me().role==='admin';
+ return `<h1>${L('Қойма','Склад')}</h1><p class="sub">${L('Партиялар, қалдық, жарамдылық мерзімі (FIFO)','Партии, остатки, сроки годности (FIFO)')}</p>
+ <div class="kpi"><div><span>${L('Барлық сабақ','Всего стеблей')}</span><b>${S.stock.reduce((a,b)=>a+b.qty,0)}</b></div><div><span>${L('Қойма құны','Стоимость склада')}</span><b>${fmt(S.stock.reduce((a,b)=>a+b.qty*b.cost,0))}</b></div><div><span>${L('Мерзімі ≤ 2 күн','Срок ≤ 2 дней')}</span><b class="dn">${S.stock.filter(b=>daysLeft(b.exp)<=2).length}</b></div><div><span>${L('Минимумнан аз','Ниже минимума')}</span><b class="dn">${S.stock.filter(b=>b.qty<b.min).length}</b></div></div>
+ ${adm?`<div class="card"><h3>📥 ${L('Партия қабылдау','Приёмка партии')}</h3><div class="g2" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));align-items:end"><div class="fld"><label>${L('Гүл','Цветок')}</label><select id="s_fl">${FL.map(f=>`<option value="${f.id}">${N(f)}</option>`).join('')}</select></div><div class="fld"><label>${L('Саны','Кол-во')}</label><input id="s_q" type="number" value="100"></div><div class="fld"><label>${L('Сатып алу бағасы','Закуп. цена')}</label><input id="s_c" type="number" value="400"></div><div class="fld"><label>${L('Жеткізуші','Поставщик')}</label><input id="s_s" value="Holland Flowers KZ"></div><div class="fld"><label>${L('Жарамдылық, күн','Годность, дн.')}</label><input id="s_d" type="number" value="7"></div></div><button class="btn acc sm" style="margin-top:14px" onclick="recv()">+ ${L('Қабылдау','Принять')}</button></div>`:''}
+ <div class="card"><div class="tw"><table class="t"><tr><th></th><th>${L('Гүл','Цветок')}</th><th>${L('Партия','Партия')}</th><th>${L('Қалдық','Остаток')}</th><th>Min</th><th>${L('Жеткізуші','Поставщик')}</th><th>${L('Қабылданды','Принято')}</th><th>${L('Мерзімі','Годен до')}</th><th></th></tr>
+ ${S.stock.slice().sort((a,b)=>a.exp.localeCompare(b.exp)).map(b=>{const d=daysLeft(b.exp);return `<tr><td><img src="${U(PH[fl(b.fl).ph],100)}" alt=""></td><td><b>${N(fl(b.fl))}</b></td><td>${b.id.toUpperCase()}</td><td><b class="${b.qty<b.min?'dn':''}">${b.qty}</b></td><td>${b.min}</td><td>${esc(b.sup)}</td><td>${b.recv}</td><td>${b.exp}<br><small class="${d<=2?'dn':'up'}">${d<0?L('мерзімі өтті','просрочено'):d+' '+L('күн','дн.')}</small></td><td>${adm&&d<=2?`<button class="btn sm ghost" onclick="writeOff('${b.id}')">${L('Есептен шығару','Списать')}</button>`:''}</td></tr>`}).join('')}</table></div></div>`}
+function recv(){const f=$('#s_fl').value,q=+$('#s_q').value,c=+$('#s_c').value,d=+$('#s_d').value;if(q<=0||c<=0||d<=0)return toast('✖ '+L('Мәндерді тексеріңіз','Проверьте значения'));
+ S.stock.push({id:'b'+(S.stock.length+1)+Math.floor(Math.random()*90),fl:f,qty:q,min:Math.round(q/3),sup:$('#s_s').value,cost:c,recv:today(),exp:addDays(today(),d)});save();render();toast('📥 '+L('Партия қабылданды','Партия принята'))}
+function writeOff(id){const b=S.stock.find(x=>x.id===id);S.orders[0]&&0;S.stock=S.stock.filter(x=>x.id!==id);save();render();toast(`🗑 ${N(fl(b.fl))} — ${b.qty} ${L('дана есептен шығарылды','шт списано')}`)}
+function aClients(){const m={};S.orders.forEach(o=>{const k=o.customer.phone;m[k]=m[k]||{name:o.customer.name,phone:k,n:0,sum:0,last:o.date,login:o.customer.login};m[k].n++;m[k].sum+=o.status!=='cancel'?o.total:0;if(o.date>m[k].last)m[k].last=o.date});
+ const list=Object.values(m).sort((a,b)=>b.sum-a.sum);
+ return `<h1>CRM</h1><p class="sub">${L('Клиенттер, сатып алу тарихы, сегменттер','Клиенты, история покупок, сегменты')}</p><div class="card"><div class="tw"><table class="t"><tr><th>${L('Клиент','Клиент')}</th><th>${L('Телефон','Телефон')}</th><th>${L('Тапсырыс','Заказов')}</th><th>${L('Сома','Сумма')}</th><th>${L('Соңғысы','Последний')}</th><th>${L('Сегмент','Сегмент')}</th><th></th></tr>
+ ${list.map(c=>`<tr><td><b>${esc(c.name)}</b>${c.login?` <span class="tag new" style="font-size:9px">${L('аккаунт','аккаунт')}</span>`:''}</td><td>${c.phone}</td><td>${c.n}</td><td><b>${fmt(c.sum)}</b></td><td>${c.last}</td><td>${c.sum>40000?'<span class="st-b s-ready">VIP</span>':c.n>1?'<span class="st-b s-done">'+L('Тұрақты','Постоянный')+'</span>':'<span class="st-b s-new">'+L('Жаңа','Новый')+'</span>'}</td><td><a class="btn sm wa" target="_blank" href="https://wa.me/${c.phone.replace(/\D/g,'')}">WhatsApp</a></td></tr>`).join('')}</table></div></div>`}
+function aPromo(){return `<h1>${L('Промокодтар','Промокоды')}</h1><p class="sub">${L('Жеңілдіктер мен акциялар','Скидки и акции')}</p>
+ <div class="card"><h3>+ ${L('Жаңа промокод','Новый промокод')}</h3><div class="g2" style="grid-template-columns:1fr 1fr auto;align-items:end"><div class="fld"><label>${L('Код','Код')}</label><input id="pr_c" placeholder="SPRING25" style="text-transform:uppercase"></div><div class="fld"><label>%</label><input id="pr_p" type="number" value="10"></div><button class="btn acc" onclick="addPromo()">${L('Қосу','Добавить')}</button></div></div>
+ <div class="card"><table class="t"><tr><th>${L('Код','Код')}</th><th>${L('Жеңілдік','Скидка')}</th><th>${L('Қолданылды','Использован')}</th><th>${L('Белсенді','Активен')}</th></tr>${S.promos.map((p,i)=>`<tr><td><b>${p.code}</b></td><td>${p.pct} %</td><td>${p.used} ${L('рет','раз')}</td><td><input type="checkbox" ${p.active?'checked':''} style="accent-color:var(--acc);width:18px;height:18px" onchange="S.promos[${i}].active=this.checked;save()"></td></tr>`).join('')}</table></div>`}
+function addPromo(){const c=$('#pr_c').value.trim().toUpperCase(),p=+$('#pr_p').value;if(!/^[A-Z0-9]{3,15}$/.test(c)||p<1||p>90)return toast('✖ '+L('Код: 3–15 латын әріп/сан, 1–90 %','Код: 3–15 лат. букв/цифр, 1–90 %'));if(S.promos.some(x=>x.code===c))return toast('✖ '+L('Мұндай код бар','Такой код уже есть'));S.promos.push({code:c,pct:p,active:true,used:0});save();render()}
+function aUsers(){return `<h1>${L('Пайдаланушылар мен рөлдер','Пользователи и роли')}</h1><p class="sub">${L('Рөл бойынша қолжетімділік','Доступ по ролям')}</p>
+ <div class="card"><table class="t"><tr><th>${L('Аты','Имя')}</th><th>${L('Логин','Логин')}</th><th>${L('Рөл','Роль')}</th><th>${L('Қолжетімділік','Доступ')}</th></tr>${USERS.map(u=>`<tr><td><b>${esc(u.name)}</b></td><td><code>${u.login}</code></td><td>${L(...ROLE_NAME[u.role])}</td><td style="font-size:13px">${{admin:L('Барлық бөлім: тапсырыс, тауар, қойма, CRM, есеп, рөлдер','Все разделы: заказы, товары, склад, CRM, отчёты, роли'),client:L('Каталог, себет, тапсырыс, жеке кабинет, бонус','Каталог, корзина, заказы, кабинет, бонусы'),florist:L('Жинау кезегі, рецептура, фото, қойманы қарау','Очередь сборки, рецептура, фото, просмотр склада'),courier:L('Өз жеткізулері, маршрут, мәртебе','Свои доставки, маршрут, статус')}[u.role]}</td></tr>`).join('')}</table></div>
+ <div class="card"><h3>${L('Қолжетімділік матрицасы','Матрица доступа')}</h3><table class="t"><tr><th>${L('Бөлім','Раздел')}</th><th>${L('Әкімші','Админ')}</th><th>${L('Флорист','Флорист')}</th><th>${L('Курьер','Курьер')}</th><th>${L('Клиент','Клиент')}</th></tr>${[[L('Тапсырыстар (барлығы)','Все заказы'),1,1,0,0],[L('Тауар және баға','Товары и цены'),1,0,0,0],[L('Қойма','Склад'),1,'👁',0,0],[L('Жеткізу мәртебесі','Статус доставки'),1,0,1,0],[L('CRM және есептер','CRM и отчёты'),1,0,0,0],[L('Өз тапсырыстары','Свои заказы'),1,0,0,1]].map(r=>`<tr><td>${r[0]}</td>${r.slice(1).map(x=>`<td>${x===1?'✅':x?x:'—'}</td>`).join('')}</tr>`).join('')}</table></div>`}
+function aLog(){const all=[];S.orders.forEach(o=>o.log.forEach(l=>all.push({...l,id:o.id})));all.sort((a,b)=>b.t.localeCompare(a.t));
+ return `<h1>${L('Мәртебелер журналы','Журнал статусов')}</h1><p class="sub">${L('Кім, қашан, нені өзгертті','Кто, когда и что изменил')}</p><div class="card log" style="max-height:none">${all.slice(0,80).map(l=>`<div><span>${l.t}</span><span><b>${l.id}</b> → ${ST[l.s]?stB(l.s):'<code>'+l.s+'</code>'} · ${esc(l.who)}</span></div>`).join('')}</div>`}
+/* ----- florist ----- */
+function fQueue(){const q=S.orders.filter(o=>['new','prep'].includes(o.status)).sort((a,b)=>(a.date+a.slot).localeCompare(b.date+b.slot));
+ const ready=S.orders.filter(o=>o.status==='ready');
+ return `<h1>${L('Жинау кезегі','Очередь сборки')}</h1><p class="sub">${L('Жеткізу уақыты бойынша сұрыпталған. Жинағаннан кейін фото жүктеңіз — ол клиентке WhatsApp арқылы кетеді.','Отсортировано по времени доставки. После сборки загрузите фото — оно уйдёт клиенту в WhatsApp.')}</p>
+ ${q.length?q.map(o=>{const nd=needs(o);const short=Object.entries(nd).filter(([f,n])=>stockOf(f)<n);return `<div class="ocard"><img src="${U(oPh(o),240)}" alt=""><div><h4>${o.id} ${stB(o.status)}</h4><div class="meta">⏰ <b>${o.date} · ${o.slot}</b><br>💐 ${esc(itemsTxt(o))}${o.card?`<br>✉ «${esc(o.card)}»`:''}</div>
+ <div>${Object.entries(nd).map(([f,n])=>`<span class="pill" style="${stockOf(f)<n?'background:#FDECEE;color:var(--acc)':''}">${N(fl(f))} × <b>${n}</b> <small>(${L('қойма','склад')}: ${stockOf(f)})</small></span>`).join('')}${o.items.some(c=>c.addons&&c.addons.length)?`<span class="pill">🎁 ${o.items.flatMap(c=>c.addons||[]).map(a=>N(prod(a))).join(', ')}</span>`:''}</div>${short.length?`<div class="warn r" style="margin-top:8px">⚠ ${L('Қойма жеткіліксіз: ','Не хватает на складе: ')}${short.map(([f])=>N(fl(f))).join(', ')}</div>`:''}</div>
+ <div class="acts">${o.status==='new'?`<button class="btn acc sm" onclick="startPrep('${o.id}')">▶ ${L('Жинауды бастау','Начать сборку')}</button>`:`<button class="btn sm" onclick="finishPrep('${o.id}')" ${short.length?'disabled':''}>📸 ${L('Дайын + фото','Готово + фото')}</button>`}</div></div>`}).join(''):`<div class="empty">🎉 ${L('Кезек бос','Очередь пуста')}</div>`}
+ ${ready.length?`<div class="card" style="margin-top:20px"><h3>📸 ${L('Дайын, курьерді күтуде','Готовы, ждут курьера')}</h3>${ordersTable(ready,false)}</div>`:''}`}
+function startPrep(id){const o=S.orders.find(x=>x.id===id);o.florist=me().login;setStatus(id,'prep')}
+function finishPrep(id){const o=S.orders.find(x=>x.id===id),nd=needs(o);
+ Object.entries(nd).forEach(([f,n])=>{let need=n;S.stock.filter(b=>b.fl===f).sort((a,b)=>a.exp.localeCompare(b.exp)).forEach(b=>{const t=Math.min(b.qty,need);b.qty-=t;need-=t})});
+ o.photo=o.items[0].custom?o.items[0].ph:prod(o.items[0].pid).ph[1]||prod(o.items[0].pid).ph[0];
+ if(o.mode==='pickup')o.log.push({t:ts(),who:me().name,s:'ready'});setStatus(id,'ready')}
+/* ----- courier ----- */
+function cList(){const u=me();const list=S.orders.filter(o=>o.mode==='courier'&&(o.status==='way'&&o.courier===u.login||o.status==='ready'&&(!o.courier||o.courier===u.login)));
+ return `<h1>${L('Менің жеткізулерім','Мои доставки')}</h1><p class="sub">${L('Букетті алып, жолға шыққанда және тапсырғанда мәртебені белгілеңіз','Отмечайте статус, когда забрали букет и когда вручили')}</p>
+ <div class="kpi"><div><span>${L('Жолда','В пути')}</span><b>${list.filter(o=>o.status==='way').length}</b></div><div><span>${L('Алуға дайын','Готовы к выдаче')}</span><b>${list.filter(o=>o.status==='ready').length}</b></div><div><span>${L('Бүгін жеткізілді','Доставлено сегодня')}</span><b>${S.orders.filter(o=>o.courier===u.login&&o.status==='done'&&(o.delivered||'').includes(new Date().toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit'}))).length}</b></div><div><span>${L('Қолма-қол алу','Собрать наличными')}</span><b>${fmt(list.filter(o=>!o.paid).reduce((a,o)=>a+o.total,0))}</b></div></div>
+ ${list.length?list.map(o=>`<div class="ocard"><img src="${U(PH[o.photo]||oPh(o),240)}" alt=""><div><h4>${o.id} ${stB(o.status)}</h4><div class="meta">⏰ <b>${o.date} · ${o.slot}</b><br>📍 ${esc(o.address)} · ${N(DISTRICTS[o.district])}<br>👤 ${esc(o.recipient.name)} · <a href="tel:${o.recipient.phone}" style="color:var(--acc)">${o.recipient.phone}</a>${o.recipient.anon?' · 🤫 '+L('аноним','анонимно'):''}<br>💳 ${o.paid?'✅ '+L('төленген','оплачено'):'💵 '+L('қолма-қол алу: ','взять наличными: ')+'<b>'+fmt(o.total)+'</b>'}</div></div>
+ <div class="acts"><a class="btn sm ghost" target="_blank" href="https://2gis.kz/astana/search/${encodeURIComponent(o.address)}">🗺 ${L('Маршрут','Маршрут')}</a>${o.status==='ready'?`<button class="btn acc sm" onclick="takeO('${o.id}')">🚗 ${L('Алдым, жолдамын','Забрал, в пути')}</button>`:`<button class="btn sm" style="background:var(--sage)" onclick="setStatus('${o.id}','done')">✅ ${L('Тапсырдым','Вручил')}</button>`}</div></div>`).join(''):`<div class="empty">☕ ${L('Қазір жеткізу жоқ','Сейчас доставок нет')}</div>`}`}
+function takeO(id){const o=S.orders.find(x=>x.id===id);o.courier=me().login;setStatus(id,'way')}
+function cDone(){const u=me();const l=S.orders.filter(o=>o.courier===u.login&&o.status==='done');return `<h1>${L('Орындалғандар','Выполненные')}</h1><p class="sub">${l.length} ${L('жеткізу','доставок')}</p><div class="card">${ordersTable(l,false)}</div>`}
+</script></body></html>
